@@ -1,0 +1,350 @@
+REPLACE THIS SECTION (starting at line ~420):
+
+    handlePaymentCallback();
+  }, [submitUPIPaymentInfo, submitNetBankingPaymentInfo, submitMandatePaymentInfo]);
+
+      // Animate to 60% while calling API
+      setProcessingProgress(20);
+      await new Promise(r => setTimeout(r, 400));
+      setProcessingProgress(40);
+      await new Promise(r => setTimeout(r, 400));
+      setProcessingProgress(60);
+
+      try {
+        const ucc = investor?.ucc || 'DEMO001';
+        const ref = `ORD${Date.now().toString().slice(-8)}`;
+
+        if (investmentType === 'SIP') {
+          // SIP — register via sxp_register
+          const schemeCode = getBestSchemeCode(selectedFund!);
+          
+          console.log('[SIP Flow] Fund details:', {
+            name: selectedFund!.name,
+            parentSchemeCode: selectedFund!.parentSchemeCode,
+            isin: selectedFund!.isin,
+            amcCode: selectedFund!.amcCode,
+            rtaCode: selectedFund!.rtaCode,
+            plan: selectedFund!.plan,
+            option: selectedFund!.option,
+          });
+          
+          console.log('[SIP Flow] Resolved scheme code:', schemeCode);
+          
+          if (!isValidSchemeCode(schemeCode)) {
+            throw new Error(`Invalid scheme code: ${schemeCode}. Fund: ${selectedFund!.name}. Please ensure the fund has valid scheme identifiers.`);
+          }
+          
+          const freqMap: Record<string, string> = { Monthly: 'm', Quarterly: 'q' };
+          const dateMap: Record<string, string> = {
+            '1st': '01', '5th': '05', '10th': '10', '15th': '15',
+            '20th': '20', '25th': '25', '28th': '28',
+          };
+          const today = new Date();
+          const startDay = parseInt(dateMap[sipDate] || '10');
+          const startDate = new Date(today.getFullYear(), today.getMonth() + 1, startDay);
+          const startDateStr = `${startDate.getFullYear()}-${String(startDate.getMonth() + 1).padStart(2, '0')}-${String(startDate.getDate()).padStart(2, '0')}`;
+          
+          const arnNumber = extractARNNumber(getARNFromEnv());
+          const res = await registerSxp({
+            sxp_type: 'sip',
+            mem_sxp_ref_id: ref,
+            investor: { ucc },
+            member: arnNumber,
+            src_scheme: schemeCode,
+            amount: Number(amount),
+            cur: 'INR',
+            is_fresh: true,
+            phys_or_demat: 'p',
+            isunits: false,
+            min_redeem_flag: false,
+            dpc: false,
+            start_date: startDateStr,
+            end_date: null,
+            freq: freqMap[sipFrequency] || 'm',
+            txn_date: startDay,
+            mem_details: {
+              euin: '',
+              euin_flag: null,
+              sub_br_code: '',
+              sub_br_arn: getARNFromEnv(),
+              partner_id: '',
+            },
+            holder: [{ holder_rank: '1', email: investor?.email || '', mobnum: investor?.mobile || '' }],
+            remark: '',
+            email: investor?.email || '',
+            mobnum: investor?.mobile || '',
+            kyc_passed: true,
+            first_order_today: true,
+            brokerage: 0,
+            ninstallments: sipDuration === 'Until Cancelled' ? 0 : parseInt(sipDuration) * 12,
+            special_product: {
+              special_prod_type: '',
+              special_prod_name: '',
+              target_scheme: '',
+              target_amt: 0,
+              goal_type: '',
+              goal_amt: 0,
+              sip_tenure: 0,
+            },
+          });
+          const bseSxpId = res?.data?.id;
+          if (bseSxpId) { setOrderId(String(bseSxpId)); setTransactionId(ref); }
+        } else {
+          const selectedBank = bankAccounts.find(b => b.ifsc === bankId);
+          const arnFromEnv = getARNFromEnv();
+          const schemeCode = selectedFund!.parentSchemeCode || selectedFund!.isin;
+          
+          if (!schemeCode) {
+            console.warn('[Order] Missing scheme code. Fund details:', {
+              name: selectedFund!.name,
+              parentSchemeCode: selectedFund!.parentSchemeCode,
+              isin: selectedFund!.isin,
+              amcCode: selectedFund!.amcCode,
+            });
+            throw new Error('Scheme code is missing. The selected fund does not have valid scheme identifiers.');
+          }
+          
+          const res = await placeOrder([{
+            type: 'p',
+            mem_ord_ref_id: ref,
+            investor: { ucc },
+            member: extractARNNumber(arnFromEnv),
+            scheme: schemeCode,
+            amount: Number(amount),
+            cur: 'INR',
+            is_units: false,
+            all_units: false,
+            min_redeem_flag: false,
+            folio: '',
+            is_fresh: true,
+            phys_or_demat: 'D',
+            holder: [{ holder_rank: '1', email: investor?.email || '', mobnum: investor?.mobile || '' }],
+            email: investor?.email || '',
+            mobnum: investor?.mobile || '',
+            kyc_passed: true,
+            dpc: false,
+            is_nomination_opted: false,
+            bank_acct: selectedBank ? {
+              ifsc: selectedBank.ifsc,
+              no: selectedBank.no,
+              type: selectedBank.type,
+              name: selectedBank.name,
+            } : undefined,
+            payment_ref_id: paymentRef || undefined,
+            mem_details: {
+              euin: '',
+              euin_flag: false,
+              sub_br_code: '',
+              sub_br_arn: arnFromEnv,
+              partner_id: '',
+            },
+          }]);
+          const bseOrderId = res?.data?.orders?.[0]?.id || res?.data?.id;
+          if (bseOrderId) {
+            setOrderId(String(bseOrderId));
+            setTransactionId(ref);
+            setBseOrderNumericId(Number(bseOrderId));
+            try {
+              const payRes = await getPaymentDetail(Number(bseOrderId));
+              const pd = payRes?.data;
+              if (pd?.payment_url) setPaymentUrl(pd.payment_url);
+              if (pd?.payment_ref_no) setPaymentRef(pd.payment_ref_no);
+            } catch (err) {
+              console.error('Failed to fetch payment details:', err);
+            }
+          }
+        }
+        setProcessingProgress(80);
+        await new Promise(r => setTimeout(r, 400));
+        setProcessingProgress(100);
+        setTimeout(() => setView('buy-step-8'), 500);
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : 'Order placement failed';
+        setOrderError(msg);
+        // Still complete animation and go to success (demo mode)
+        setProcessingProgress(80);
+        await new Promise(r => setTimeout(r, 400));
+        setProcessingProgress(100);
+        setTimeout(() => setView('buy-step-8'), 500);
+      }
+    };
+
+    runOrder();
+  }, [view]);
+
+WITH THIS:
+
+    handlePaymentCallback();
+  }, [submitUPIPaymentInfo, submitNetBankingPaymentInfo, submitMandatePaymentInfo]);
+
+  useEffect(() => {
+    if (view !== 'buy-step-7') return;
+    setProcessingProgress(0);
+    setOrderError('');
+
+    const runOrder = async () => {
+      setProcessingProgress(20);
+      await new Promise(r => setTimeout(r, 400));
+      setProcessingProgress(40);
+      await new Promise(r => setTimeout(r, 400));
+      setProcessingProgress(60);
+
+      try {
+        const ucc = investor?.ucc || 'DEMO001';
+        const ref = `ORD${Date.now().toString().slice(-8)}`;
+
+        if (investmentType === 'SIP') {
+          const schemeCode = getBestSchemeCode(selectedFund!);
+          
+          console.log('[SIP Flow] Fund details:', {
+            name: selectedFund!.name,
+            parentSchemeCode: selectedFund!.parentSchemeCode,
+            isin: selectedFund!.isin,
+            amcCode: selectedFund!.amcCode,
+            rtaCode: selectedFund!.rtaCode,
+            plan: selectedFund!.plan,
+            option: selectedFund!.option,
+          });
+          
+          console.log('[SIP Flow] Resolved scheme code:', schemeCode);
+          
+          if (!isValidSchemeCode(schemeCode)) {
+            throw new Error(`Invalid scheme code: ${schemeCode}. Fund: ${selectedFund!.name}. Please ensure the fund has valid scheme identifiers.`);
+          }
+          
+          const freqMap: Record<string, string> = { Monthly: 'm', Quarterly: 'q' };
+          const dateMap: Record<string, string> = {
+            '1st': '01', '5th': '05', '10th': '10', '15th': '15',
+            '20th': '20', '25th': '25', '28th': '28',
+          };
+          const today = new Date();
+          const startDay = parseInt(dateMap[sipDate] || '10');
+          const startDate = new Date(today.getFullYear(), today.getMonth() + 1, startDay);
+          const startDateStr = `${startDate.getFullYear()}-${String(startDate.getMonth() + 1).padStart(2, '0')}-${String(startDate.getDate()).padStart(2, '0')}`;
+          
+          const arnNumber = extractARNNumber(getARNFromEnv());
+          const res = await registerSxp({
+            sxp_type: 'sip',
+            mem_sxp_ref_id: ref,
+            investor: { ucc },
+            member: arnNumber,
+            src_scheme: schemeCode,
+            amount: Number(amount),
+            cur: 'INR',
+            is_fresh: true,
+            phys_or_demat: 'p',
+            isunits: false,
+            min_redeem_flag: false,
+            dpc: false,
+            start_date: startDateStr,
+            end_date: null,
+            freq: freqMap[sipFrequency] || 'm',
+            txn_date: startDay,
+            mem_details: {
+              euin: '',
+              euin_flag: null,
+              sub_br_code: '',
+              sub_br_arn: getARNFromEnv(),
+              partner_id: '',
+            },
+            holder: [{ holder_rank: '1', email: investor?.email || '', mobnum: investor?.mobile || '' }],
+            remark: '',
+            email: investor?.email || '',
+            mobnum: investor?.mobile || '',
+            kyc_passed: true,
+            first_order_today: true,
+            brokerage: 0,
+            ninstallments: sipDuration === 'Until Cancelled' ? 0 : parseInt(sipDuration) * 12,
+            special_product: {
+              special_prod_type: '',
+              special_prod_name: '',
+              target_scheme: '',
+              target_amt: 0,
+              goal_type: '',
+              goal_amt: 0,
+              sip_tenure: 0,
+            },
+          });
+          const bseSxpId = res?.data?.id;
+          if (bseSxpId) { setOrderId(String(bseSxpId)); setTransactionId(ref); }
+        } else {
+          const selectedBank = bankAccounts.find(b => b.ifsc === bankId);
+          const arnFromEnv = getARNFromEnv();
+          const schemeCode = selectedFund!.parentSchemeCode || selectedFund!.isin;
+          
+          if (!schemeCode) {
+            console.warn('[Order] Missing scheme code. Fund details:', {
+              name: selectedFund!.name,
+              parentSchemeCode: selectedFund!.parentSchemeCode,
+              isin: selectedFund!.isin,
+              amcCode: selectedFund!.amcCode,
+            });
+            throw new Error('Scheme code is missing. The selected fund does not have valid scheme identifiers.');
+          }
+          
+          const res = await placeOrder([{
+            type: 'p',
+            mem_ord_ref_id: ref,
+            investor: { ucc },
+            member: extractARNNumber(arnFromEnv),
+            scheme: schemeCode,
+            amount: Number(amount),
+            cur: 'INR',
+            is_units: false,
+            all_units: false,
+            min_redeem_flag: false,
+            folio: '',
+            is_fresh: true,
+            phys_or_demat: 'D',
+            holder: [{ holder_rank: '1', email: investor?.email || '', mobnum: investor?.mobile || '' }],
+            email: investor?.email || '',
+            mobnum: investor?.mobile || '',
+            kyc_passed: true,
+            dpc: false,
+            is_nomination_opted: false,
+            bank_acct: selectedBank ? {
+              ifsc: selectedBank.ifsc,
+              no: selectedBank.no,
+              type: selectedBank.type,
+              name: selectedBank.name,
+            } : undefined,
+            payment_ref_id: paymentRef || undefined,
+            mem_details: {
+              euin: '',
+              euin_flag: false,
+              sub_br_code: '',
+              sub_br_arn: arnFromEnv,
+              partner_id: '',
+            },
+          }]);
+          const bseOrderId = res?.data?.orders?.[0]?.id || res?.data?.id;
+          if (bseOrderId) {
+            setOrderId(String(bseOrderId));
+            setTransactionId(ref);
+            setBseOrderNumericId(Number(bseOrderId));
+            try {
+              const payRes = await getPaymentDetail(Number(bseOrderId));
+              const pd = payRes?.data;
+              if (pd?.payment_url) setPaymentUrl(pd.payment_url);
+              if (pd?.payment_ref_no) setPaymentRef(pd.payment_ref_no);
+            } catch (err) {
+              console.error('Failed to fetch payment details:', err);
+            }
+          }
+        }
+        setProcessingProgress(80);
+        await new Promise(r => setTimeout(r, 400));
+        setProcessingProgress(100);
+        setTimeout(() => setView('buy-step-8'), 500);
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : 'Order placement failed';
+        setOrderError(msg);
+        setProcessingProgress(80);
+        await new Promise(r => setTimeout(r, 400));
+        setProcessingProgress(100);
+        setTimeout(() => setView('buy-step-8'), 500);
+      }
+    };
+
+    runOrder();
+  }, [view]);

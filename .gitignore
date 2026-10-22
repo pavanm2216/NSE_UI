@@ -1,0 +1,23 @@
+node_modules
+dist
+.vite
+.swc-cache
+.npm-cache
+
+# zips
+*.zip
+
+# env
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+
+# cache
+__MACOSX/
