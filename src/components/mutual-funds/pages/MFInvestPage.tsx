@@ -259,7 +259,7 @@ const MFInvestPage: React.FC = () => {
   const hasMore   = paginated.length < filtered.length;
 
   const handleInvest = (scheme: TransformedScheme) => {
-    navigate(`/dashboard/mf/sips/register?scheme=${encodeURIComponent(scheme.bseCode || scheme.isin)}&name=${encodeURIComponent(scheme.name)}`);
+    navigate(`/dashboard/mf/orders/purchase?scheme=${encodeURIComponent(scheme.bseCode || scheme.isin)}&name=${encodeURIComponent(scheme.name)}`);
   };
 
   // Category counts
@@ -288,6 +288,14 @@ const MFInvestPage: React.FC = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Mock data notice */}
+      <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-800">
+        <strong>Note:</strong> NAV, returns, ratings and sparklines shown on fund cards are illustrative estimates
+        derived from scheme names. They are <strong>not real market data</strong>. Actual NAV and performance
+        data require a separate data feed not yet integrated. Scheme codes, plan types and minimum investment
+        amounts are sourced from BSE StAR MF and are accurate.
       </div>
 
       {/* Search + Filter bar */}

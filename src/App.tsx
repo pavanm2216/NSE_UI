@@ -154,6 +154,7 @@ import NSEDashboard from "./pages/dashboard/NSEDashboard";
 
 // Mutual Funds Pages (lazy loaded)
 const MFPortfolioPage     = lazy(() => import('./components/mutual-funds/MFPortfolioPage'));
+const MFOverviewPage           = lazy(() => import('./components/mutual-funds/pages/MFOverviewPage'));
 const MFInvestPage             = lazy(() => import('./components/mutual-funds/pages/MFInvestPage'));
 const MFPortfolioSummaryPage   = lazy(() => import('./components/mutual-funds/pages/MFPortfolioSummaryPage'));
 const MFTransactionsPage       = lazy(() => import('./components/mutual-funds/pages/MFTransactionsPage'));
@@ -389,7 +390,8 @@ const App = () => (
 
                 {/* Mutual Funds Routes — protected by MFAuthGuard */}
                 <Route element={<MFAuthGuard />}>
-                  <Route path="mf" element={<Navigate to="/dashboard/mf/invest" replace />} />
+                  <Route path="mf" element={<Navigate to="/dashboard/mf/overview" replace />} />
+                  <Route path="mf/overview"            element={<Suspense fallback={<MFLoader />}><MFOverviewPage /></Suspense>} />
                   <Route path="mf/portfolio"           element={<Suspense fallback={<MFLoader />}><MFPortfolioPage /></Suspense>} />
                   <Route path="mf/portfolio-returns"   element={<Suspense fallback={<MFLoader />}><MFPortfolioPage /></Suspense>} />
                   <Route path="mf/invest"              element={<Suspense fallback={<MFLoader />}><MFInvestPage /></Suspense>} />
@@ -420,6 +422,7 @@ const App = () => (
                   <Route path="mf/discovery/amcs"        element={<AMCListingPage />} />
                   <Route path="mf/discovery/amc/:amcId"  element={<AMCFundsPage />} />
                   <Route path="mf/discovery/fund/:amcId/:fundName" element={<FundDetailPage />} />
+                  <Route path="mf/help"                  element={<SharedHelpSupportPage />} />
                 </Route>
               </Route>
               

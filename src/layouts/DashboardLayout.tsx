@@ -337,7 +337,7 @@ const MFSidebar: React.FC = () => {
           </Link>
         </div>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-sidebar-foreground/60">Customer</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-sidebar-foreground/60">Mutual Funds</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {MF_MENU.map((item) => (
@@ -354,7 +354,7 @@ const MFSidebar: React.FC = () => {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-sidebar-foreground/60">Admin & Reports</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-sidebar-foreground/60">Advanced & Reports</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {MF_ADMIN_MENU.map((item) => (
