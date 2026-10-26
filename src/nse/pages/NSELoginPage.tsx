@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight, Eye, EyeOff, Landmark, LockKeyhole, Loader2, UserRound } from 'lucide-react';
-import { loginToNSE } from '@/services/nseAuth';
+import { loginToNSE } from '../services/nseAuth';
 
 export default function NSELoginPage({ showOtherOptions = true }: { showOtherOptions?: boolean }) {
   const navigate = useNavigate();
