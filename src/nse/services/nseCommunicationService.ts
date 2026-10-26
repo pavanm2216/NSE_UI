@@ -1,5 +1,5 @@
 import { nseApi, nseRequest } from './nseApi';
-import type { ResendCommResponse } from '@/types/nse';
+import type { ResendCommResponse } from '../types/nse';
 
 export const NSE_LINK_PRODUCTS = ['PUR', 'RED', 'SWH_REG', 'SIP_REG', 'XSIP_REG', 'XSIP_CAN', 'STP_REG', 'STP_CAN', 'SWP_REG', 'SWP_CAN', 'CL_ACT', 'SIP_CAN', 'MANDATE_AUTH', 'SIP_TOPUP'] as const;
 export type NSELinkProduct = typeof NSE_LINK_PRODUCTS[number];

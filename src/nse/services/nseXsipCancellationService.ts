@@ -1,5 +1,5 @@
 import { nseRequest } from './nseApi';
-import type { XSIPCancellationDetail, XSIPCancellationResponse } from '@/types/nse';
+import type { XSIPCancellationDetail, XSIPCancellationResponse } from '../types/nse';
 
 export const XSIP_CANCELLATION_REASONS = [
   ['01', 'Non availability of funds'], ['02', 'Scheme not performing'], ['03', 'Service issue'], ['04', 'Load revised'],

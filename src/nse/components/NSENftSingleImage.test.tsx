@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSENftUpdates from './NSENftUpdates';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 const fill = (label: string, value: string) => fireEvent.change(screen.getByLabelText(label), { target: { value } });
 it('reviews the primary bank separately and keeps 404 changes unconfirmed', async () => {

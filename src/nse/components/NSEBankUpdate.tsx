@@ -1,7 +1,7 @@
-import { NSEButton, NSEDialogTitle, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { buildNSEBankUpdate, updateNSEBank, type NSEBankUpdate as BankInput } from '@/services/nseBankUpdateService';
+import { buildNSEBankUpdate, updateNSEBank, type NSEBankUpdate as BankInput } from '../services/nseBankUpdateService';
 export default function NSEBankUpdate({ onClose }: { onClose: () => void }) {
   const [input, setInput] = useState<BankInput>({ client: '', action: 'ADD', type: '', account: '', ifsc: '', micr: '', isDefault: false }), [confirmAccount, setConfirmAccount] = useState('');
   const [review, setReview] = useState(false), [consent, setConsent] = useState(false), [busy, setBusy] = useState(false), [attempted, setAttempted] = useState(false), [error, setError] = useState(''), [message, setMessage] = useState('');

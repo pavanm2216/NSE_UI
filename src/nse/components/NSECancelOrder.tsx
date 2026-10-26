@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildOrderCancellation, cancelNSEOrder } from '@/services/nseOrderCancellationService';
+import { buildOrderCancellation, cancelNSEOrder } from '../services/nseOrderCancellationService';
 export default function NSECancelOrder({ id, client, source, onCancelled }: { id: string; client: string; source: string; onCancelled: () => void }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);
   const [remarks, setRemarks] = useState(''), [error, setError] = useState(''), [message, setMessage] = useState('');

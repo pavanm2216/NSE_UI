@@ -1,6 +1,6 @@
-import { NSEButton, NSESummary } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildSipPause, nextNSEInstallment, submitSipPause } from '@/services/nseSipPauseService';
+import { buildSipPause, nextNSEInstallment, submitSipPause } from '../services/nseSipPauseService';
 export default function NSESipPause({ product, id, client, frequency }: { product: 'SIP' | 'XSIP'; id: string; client: string; frequency: string }) {
   const [next, setNext] = useState(''), [effective, setEffective] = useState(''), [flag, setFlag] = useState<'Y' | 'N'>('Y'), [remarks, setRemarks] = useState('');
   const [busy, setBusy] = useState(false), [consent, setConsent] = useState(false), [attempted, setAttempted] = useState(false);

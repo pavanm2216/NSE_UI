@@ -1,5 +1,5 @@
 import { nseRequest } from './nseApi';
-import type { STPCancellationDetail, STPCancellationResponse } from '@/types/nse';
+import type { STPCancellationDetail, STPCancellationResponse } from '../types/nse';
 
 export function buildStpCancellation(clientCode: string, sipId: string, remarks = '') {
   if (!clientCode.trim() || clientCode.trim().length > 10 || clientCode.trim().toLowerCase() === 'string') throw new Error('A valid client code of up to 10 characters is required');

@@ -1,9 +1,9 @@
-import { NSEButton, NSEDialogTitle, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSEHeading } from '../components/NSEPresentation';
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import type { NSEDemoOrder } from './NSEInvestmentFlow';
 import NSEInvestorSelector from './NSEInvestorSelector';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
 export interface NSEPlanScheme { name: string; code: string; amc: string; amcCode?: string }
 const primary = 'w-full rounded-lg bg-[#102B78] px-4 py-3 text-sm font-semibold text-white hover:bg-[#1B3F96] disabled:bg-gray-200 disabled:text-gray-500';
 const input = 'mt-2 w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-normal';

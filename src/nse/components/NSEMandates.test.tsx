@@ -1,14 +1,14 @@
-﻿import React from 'react';
+import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEMandates from './NSEMandates';
-import { nseApi, NSEApiError } from '@/services/nseApi';
+import { nseApi, NSEApiError } from '../services/nseApi';
 vi.mock('./NSEInvestorSelector', () => import('@/test/mockNSEInvestorSelector'));
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 function review(record = vi.fn()) {
   render(<NSEMandates records={[]} onRecord={record} />);
   fireEvent.mouseDown(screen.getByRole('tab', { name: 'Register mandate' }), { button: 0, ctrlKey: false });
-  fireEvent.change(screen.getByLabelText('Maximum debit amount (₹)'), { target: { value: '100000' } });
+  fireEvent.change(screen.getByLabelText('Maximum debit amount (?)'), { target: { value: '100000' } });
   fireEvent.change(screen.getByLabelText('Account type'), { target: { value: 'SB' } });
   fireEvent.change(screen.getByLabelText('Start date'), { target: { value: '2099-10-15' } });
   fireEvent.change(screen.getByLabelText('End date'), { target: { value: '2100-10-15' } });
@@ -29,7 +29,7 @@ describe('Mutual funds live mandate UI', () => {
     expect(screen.getByRole('button', { name: 'Register mandate' })).toBeDisabled();
     fireEvent.click(screen.getByRole('checkbox'));
     fireEvent.click(screen.getByRole('button', { name: 'Register mandate' }));
-    expect(await screen.findByRole('heading', { name: 'Mandate registered — approval pending' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Mandate registered � approval pending' })).toBeInTheDocument();
     expect(api).toHaveBeenCalledWith(expect.objectContaining({ reg_data: [expect.objectContaining({ mandate_type: 'E', ac_type: 'SB', start_date: '15/10/2099' })] }));
     expect(record).toHaveBeenCalledWith(expect.objectContaining({ status: 'registered' }));
   });

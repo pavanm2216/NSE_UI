@@ -1,4 +1,4 @@
-import { NSEHeading, NSESummary } from '@/components/nse/NSEPresentation';
+import { NSEHeading, NSESummary } from '../components/NSEPresentation';
 ﻿import React from 'react';
 import { Landmark } from 'lucide-react';
 import NSEMandateAuthorization from './NSEMandateAuthorization';

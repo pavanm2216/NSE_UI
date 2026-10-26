@@ -1,6 +1,6 @@
-import { NSEButton, NSESummary } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { linkSipMandate, loadApprovedSipMandates, type ApprovedSipMandate } from '@/services/nseSipMappingService';
+import { linkSipMandate, loadApprovedSipMandates, type ApprovedSipMandate } from '../services/nseSipMappingService';
 export default function NSESipMandateMapping({ sipId, clientCode }: { sipId: string; clientCode: string }) {
   const [mandates, setMandates] = useState<ApprovedSipMandate[]>([]), [selected, setSelected] = useState('');
   const [loaded, setLoaded] = useState(false), [busy, setBusy] = useState(false), [consent, setConsent] = useState(false);

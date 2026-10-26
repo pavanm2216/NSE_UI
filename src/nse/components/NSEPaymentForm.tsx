@@ -1,7 +1,7 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildNSEPayment, initiateNSEPayment, NSE_PAYMENT_MODES, type NSEPaymentMode } from '@/services/nsePaymentService';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
+import { buildNSEPayment, initiateNSEPayment, NSE_PAYMENT_MODES, type NSEPaymentMode } from '../services/nsePaymentService';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
 import type { NSEDemoOrder } from './NSEInvestmentFlow';
 import NSEUpiStatusCheck from './NSEUpiStatusCheck';
 export default function NSEPaymentForm({ order, investor, onUpdate, onBusyChange }: { order: NSEDemoOrder; investor: NSEInvestorSelection; onUpdate: (order: NSEDemoOrder) => void; onBusyChange?: (busy: boolean) => void }) {

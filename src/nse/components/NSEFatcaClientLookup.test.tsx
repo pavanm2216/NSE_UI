@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import NSEFatcaRegistration from './NSEFatcaRegistration';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 const master = { response_status: 'S', report_data_total: '1', report_data: [{ client_code: 'TEST01', primary_holder_first_name: 'First Investor', primary_holder_pan: 'ABCPD1234F', tax_status: '01', primary_holder_dob_incorporation: '15/06/1990', second_holder_first_name: 'Joint Investor', second_holder_pan: 'ABCPD2345F' }] };
 function mock(reports: unknown[]) {

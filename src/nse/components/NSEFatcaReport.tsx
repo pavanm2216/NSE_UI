@@ -1,11 +1,11 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import NSEFatcaCommonUpload from './NSEFatcaCommonUpload';
 import NSEFatcaDataUpload from './NSEFatcaDataUpload';
 import NSEFatcaUpload from './NSEFatcaUpload';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { getNSEFatcaReport } from '@/services/nseFatcaReportService';
+import { getNSEFatcaReport } from '../services/nseFatcaReportService';
 export default function NSEFatcaReport({ onClose, initialIdentifier = '' }: { onClose: () => void; initialIdentifier?: string }) {
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
   const [filters, setFilters] = useState({ pan_pkern_no: initialIdentifier, from_date: today, to_date: today });

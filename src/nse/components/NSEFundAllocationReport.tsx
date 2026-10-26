@@ -1,7 +1,7 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { getNSEFundAllocation, NSEFundAllocationInput, NSE_PAYMENT_AGENCIES } from '@/services/nseFundAllocationService';
+import { getNSEFundAllocation, NSEFundAllocationInput, NSE_PAYMENT_AGENCIES } from '../services/nseFundAllocationService';
 const groups = [
   ['Payment received', ['clientcode', 'clientname', 'paymentdate', 'payment_mode', 'totalamount', 'cfppgbankrefno', 'utrno']],
   ['Order allocation', ['totalallocatedamount', 'remainingamount']],

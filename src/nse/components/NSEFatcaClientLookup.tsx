@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { NSEButton } from './NSEPresentation';
-import { searchFatcaClients, getHolderFatcaRecords, buildFatcaPrefill, type FatcaClient, type FatcaHolder, type FatcaPrefill } from '@/services/nseFatcaPrefillService';
+import { searchFatcaClients, getHolderFatcaRecords, buildFatcaPrefill, type FatcaClient, type FatcaHolder, type FatcaPrefill } from '../services/nseFatcaPrefillService';
 
 export default function NSEFatcaClientLookup({ disabled, onLoading, onPrefill, onClear }: {
   disabled: boolean; onLoading: (loading: boolean) => void;

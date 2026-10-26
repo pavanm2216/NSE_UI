@@ -1,6 +1,6 @@
-import { NSEButton, NSESummary } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildNSEUtr, updateNSEUtr } from '@/services/nseUtrService';
+import { buildNSEUtr, updateNSEUtr } from '../services/nseUtrService';
 export default function NSEUtrUpdate({ client, order, scheme }: { client: string; order: string; scheme: string }) {
   const [fields, setFields] = useState({ bank: '', account: '', ifsc: '', utr: '', date: '' }), [confirmAccount, setConfirmAccount] = useState('');
   const [review, setReview] = useState(false), [consent, setConsent] = useState(false), [busy, setBusy] = useState(false), [attempted, setAttempted] = useState(false), [error, setError] = useState(''), [message, setMessage] = useState('');

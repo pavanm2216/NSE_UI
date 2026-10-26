@@ -1,7 +1,7 @@
-﻿import { nseSipInvestorMode } from './nseSipService';
+import { nseSipInvestorMode } from './nseSipService';
 import { nseApi } from './nseApi';
 import type { NSEInvestorSelection } from './nseInvestorService';
-import type { OrderDetail } from '@/types/nse';
+import type { OrderDetail } from '../types/nse';
 export type NSETransactionMode = 'C' | 'N' | 'P';
 export type NSEPurchaseType = 'FRESH' | 'ADDITIONAL';
 export interface NSEPurchaseInput {

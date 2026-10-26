@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogDescription } from '@/components/ui/dialog';
 import { NSEButton, NSEDialogTitle } from './NSEPresentation';
-import { checkNSEClientKyc, type NSEKycResult } from '@/services/nseKycService';
+import { checkNSEClientKyc, type NSEKycResult } from '../services/nseKycService';
 export default function NSEKycStatus({ onClose }: { onClose: () => void }) {
  const [code, setCode] = useState(''), [pan, setPan] = useState('');
  const [busy, setBusy] = useState(false), [error, setError] = useState(''), [result, setResult] = useState<NSEKycResult | null>(null);

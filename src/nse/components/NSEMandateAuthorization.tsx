@@ -1,6 +1,6 @@
-import { NSEButton } from '@/components/nse/NSEPresentation';
+import { NSEButton } from '../components/NSEPresentation';
 import React, { useEffect, useRef, useState } from 'react';
-import { getNSEHolderLinks } from '@/services/nseCommunicationService';
+import { getNSEHolderLinks } from '../services/nseCommunicationService';
 import NSEResendCommunication from './NSEResendCommunication';
 
 export default function NSEMandateAuthorization({ mandateId }: { mandateId: string }) {

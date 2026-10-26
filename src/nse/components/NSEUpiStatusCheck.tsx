@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 ﻿import React, { useId, useRef, useState } from 'react';
-import { getNSEUpiStatus } from '@/services/nseUpiService';
+import { getNSEUpiStatus } from '../services/nseUpiService';
 import type { NSEDemoOrder } from './NSEInvestmentFlow';
 export default function NSEUpiStatusCheck({ order, onUpdate }: { order: NSEDemoOrder; onUpdate: (order: NSEDemoOrder) => void }) {
   const helpId = useId();

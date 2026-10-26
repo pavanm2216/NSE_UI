@@ -1,13 +1,13 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import NSECancelDailyXsip from './NSECancelDailyXsip';
 import NSETopup from './NSETopup';
 import NSEEditXsip from './NSEEditXsip';
 import NSESipPause from './NSESipPause';
 import NSECancelXsip from './NSECancelXsip';
 import React, { useEffect, useRef, useState } from 'react';
-import { nseApi } from '@/services/nseApi';
-import { buildXsipReportRequest } from '@/services/nseXsipReportService';
+import { nseApi } from '../services/nseApi';
+import { buildXsipReportRequest } from '../services/nseXsipReportService';
 import NSEResendCommunication from './NSEResendCommunication';
 
 const toReportDate = (iso: string) => iso.split('-').reverse().join('-');

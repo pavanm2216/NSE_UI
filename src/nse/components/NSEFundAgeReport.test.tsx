@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEFundAgeReport from './NSEFundAgeReport';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 it('shows order and funds status independently with masked accounts', async () => {
   sessionStorage.setItem(NSE_TOKEN_KEY, 'test-token');

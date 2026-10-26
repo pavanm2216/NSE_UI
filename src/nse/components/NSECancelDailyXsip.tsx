@@ -1,7 +1,7 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
-import { buildDailyXsipCancellation, cancelNSEDailyXsip, dailyXsipEarliestDate } from '@/services/nseDailyXsipCancellationService';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
+import { buildDailyXsipCancellation, cancelNSEDailyXsip, dailyXsipEarliestDate } from '../services/nseDailyXsipCancellationService';
 import React, { useRef, useState } from 'react';
-import { XSIP_CANCELLATION_REASONS } from '@/services/nseXsipCancellationService';
+import { XSIP_CANCELLATION_REASONS } from '../services/nseXsipCancellationService';
 
 export default function NSECancelDailyXsip({ sipId, clientCode, scheme, investor, onCancelled }: { sipId: string; clientCode: string; scheme: string; investor: string; onCancelled: () => void }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);

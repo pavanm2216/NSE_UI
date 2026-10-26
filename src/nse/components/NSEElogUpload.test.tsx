@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEElogUpload from './NSEElogUpload';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 it('uses date/time pickers and submits the chosen timestamp only after confirmation', async () => {
  sessionStorage.setItem(NSE_TOKEN_KEY, 'test-token');

@@ -1,8 +1,8 @@
 import { Search } from 'lucide-react';
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useEffect, useRef, useState } from 'react';
-import { nseApi } from '@/services/nseApi';
-import { buildMandateReportRequest } from '@/services/nseMandateReportService';
+import { nseApi } from '../services/nseApi';
+import { buildMandateReportRequest } from '../services/nseMandateReportService';
 import NSEMandateCard from './NSEMandateCard';
 export default function NSEExistingMandates() {
   const [clientCode, setClientCode] = useState('');

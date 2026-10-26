@@ -1,5 +1,5 @@
 import { nseApi } from './nseApi';
-import type { UCCRegistrationRequest, UCCRegistrationResponse } from '@/types/nse';
+import type { UCCRegistrationRequest, UCCRegistrationResponse } from '../types/nse';
 
 // Common checks only. Tax-status-specific requirements need the referenced
 // master tables before an onboarding form can produce a complete request.

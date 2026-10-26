@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildSipModification, modifyNSESip, SIP_EDIT_FIELDS, type SipEdits } from '@/services/nseSipModificationService';
+import { buildSipModification, modifyNSESip, SIP_EDIT_FIELDS, type SipEdits } from '../services/nseSipModificationService';
 export default function NSEEditSip({ id, client, scheme, current }: { id: string; client: string; scheme: string; current: SipEdits }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);
   const [edits, setEdits] = useState<SipEdits>({}), [remarks, setRemarks] = useState('');

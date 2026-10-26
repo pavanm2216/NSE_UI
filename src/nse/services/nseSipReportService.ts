@@ -1,4 +1,4 @@
-import type { SIPRegReportRequest } from '@/types/nse';
+import type { SIPRegReportRequest } from '../types/nse';
 
 export function buildSipReportRequest(input: SIPRegReportRequest): SIPRegReportRequest {
   const list = (value: string | null | undefined, numeric = false) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSESipReport from './NSESipReport';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('shows separate management actions and mounts only the selected controls', async () => {
   vi.spyOn(nseApi, 'sipReport').mockResolvedValue({ response_status: 'S', report_data: [{ status: 'ACTIVE', sip_reg_number: '123', scheme_name: 'Test fund', installments_amount: '2000', frequency_type: 'MONTHLY', client_code: 'TEST' }] });

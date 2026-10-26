@@ -1,7 +1,7 @@
-﻿import { nseApi } from './nseApi';
+import { nseApi } from './nseApi';
 import { indiaReportDates } from './nseOrderReportService';
 import type { NSEInvestorSelection } from './nseInvestorService';
-import type { MandateRegistrationRequest } from '@/types/nse';
+import type { MandateRegistrationRequest } from '../types/nse';
 export const NSE_ACCOUNT_TYPES = ['SB', 'CB', 'NE', 'NO'] as const;
 export interface NSEMandateInput { investor: NSEInvestorSelection; amount: number; type: 'X' | 'E'; accountType: string; micr: string; startDate: string; endDate: string; processedByMember: boolean; registrationDate: string; reference: string }
 const date = (value: string) => {

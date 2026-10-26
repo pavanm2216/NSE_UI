@@ -1,12 +1,12 @@
 import NSEFlowSteps from './NSEFlowSteps';
-import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '../components/NSEPresentation';
 ﻿import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import NSEInvestorSelector from './NSEInvestorSelector';
 import NSEPlanChecks from './NSEPlanChecks';
 import NSESipMandateSelector from './NSESipMandateSelector';
-import { buildNSESip, checkNSESipMandate, registerNSESip, NSE_SIP_FREQUENCIES, nseSipInvestorMode, type NSESipInput } from '@/services/nseSipService';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
+import { buildNSESip, checkNSESipMandate, registerNSESip, NSE_SIP_FREQUENCIES, nseSipInvestorMode, type NSESipInput } from '../services/nseSipService';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
 import type { NSEFund, NSEDemoOrder } from './NSEInvestmentFlow';
 const primary = 'w-full rounded-lg bg-[#102B78] px-4 py-3 text-sm font-semibold text-white disabled:bg-gray-200 disabled:text-gray-500';
 const inputClass = 'mt-2 w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-normal';

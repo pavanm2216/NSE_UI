@@ -1,4 +1,4 @@
-import type { MandateStatusReportRequest } from '@/types/nse';
+import type { MandateStatusReportRequest } from '../types/nse';
 
 export function buildMandateReportRequest(input: MandateStatusReportRequest): MandateStatusReportRequest {
   const list = (value: string | null | undefined, name: string, numeric = false, maxLength?: number) => {

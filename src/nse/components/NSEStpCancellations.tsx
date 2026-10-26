@@ -1,7 +1,7 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useEffect, useRef, useState } from 'react';
-import { nseApi } from '@/services/nseApi';
-import { buildStpCancellationReportRequest } from '@/services/nseStpCancellationReportService';
+import { nseApi } from '../services/nseApi';
+import { buildStpCancellationReportRequest } from '../services/nseStpCancellationReportService';
 
 export default function NSEStpCancellations() {
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });

@@ -1,7 +1,7 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useEffect, useRef, useState } from 'react';
-import { getNSEStepups } from '@/services/nseStepupReportService';
-import { buildStepupReport } from '@/services/nseStepupReportService';
+import { getNSEStepups } from '../services/nseStepupReportService';
+import { buildStepupReport } from '../services/nseStepupReportService';
 
 export default function NSEStepups({ plan }: { plan?: { id: string; name: string } } = {}) {
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });

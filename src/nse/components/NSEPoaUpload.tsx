@@ -1,7 +1,7 @@
-import { NSEButton, NSEDialogTitle } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { uploadNSEPoa, validateNSEPoa } from '@/services/nsePoaService';
+import { uploadNSEPoa, validateNSEPoa } from '../services/nsePoaService';
 export default function NSEPoaUpload({ onClose }: { onClose: () => void }) {
   const [client, setClient] = useState(''), [file, setFile] = useState<File | null>(null);
   const [review, setReview] = useState(false), [consent, setConsent] = useState(false), [busy, setBusy] = useState(false), [attempted, setAttempted] = useState(false), [error, setError] = useState(''), [message, setMessage] = useState('');

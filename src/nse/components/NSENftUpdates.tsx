@@ -1,12 +1,12 @@
-import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
-import { buildNftSingleBank, submitNftSingleBank, NFT_SINGLE_BANK_FIELDS } from '@/services/nseNftSingleBankService';
+import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '../components/NSEPresentation';
+import { buildNftSingleBank, submitNftSingleBank, NFT_SINGLE_BANK_FIELDS } from '../services/nseNftSingleBankService';
 import NSENftImageUpload from './NSENftImageUpload';
-import { buildNftAdditional, submitNftAdditional, NFT_ADDITIONAL_FIELDS } from '@/services/nseNftAdditionalService';
-import { buildNftContact, submitNftContact, NFT_CONTACT_FIELDS } from '@/services/nseNftContactService';
-import { buildNftBank, submitNftBank, NFT_BANK_FIELDS } from '@/services/nseNftBankService';
+import { buildNftAdditional, submitNftAdditional, NFT_ADDITIONAL_FIELDS } from '../services/nseNftAdditionalService';
+import { buildNftContact, submitNftContact, NFT_CONTACT_FIELDS } from '../services/nseNftContactService';
+import { buildNftBank, submitNftBank, NFT_BANK_FIELDS } from '../services/nseNftBankService';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { buildNftNominee, submitNftNominee, NFT_COMMON_FIELDS, NFT_NOMINEE_FIELDS, NftField } from '@/services/nseNftNomineeService';
+import { buildNftNominee, submitNftNominee, NFT_COMMON_FIELDS, NFT_NOMINEE_FIELDS, NftField } from '../services/nseNftNomineeService';
 type Mode = 'nominee' | 'bank' | 'contact' | 'dividend' | 'broker' | 'consolidation' | 'singlebank' | 'image';
 const modeTitles: Record<Mode, string> = { nominee: 'Update nominees', bank: 'Update bank accounts', contact: 'Update contact details', dividend: 'Change dividend option', broker: 'Change broker or adviser', consolidation: 'Consolidate folios', singlebank: 'Change primary bank', image: 'Upload folio document' };
 const modeNames: Record<Mode, string> = { nominee: 'nominee update', bank: 'bank update', contact: 'contact update', dividend: 'dividend update', broker: 'broker update', consolidation: 'folio consolidation', singlebank: 'primary bank change', image: 'NFT document upload' };

@@ -5,10 +5,10 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEInvestmentFlow from './NSEInvestmentFlow';
 import NSEDashboard from '@/pages/dashboard/NSEDashboard';
 import { MemoryRouter } from 'react-router-dom';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 
-vi.mock('@/services/nseAuth', () => ({ isNSEConnected: () => true, clearNSEToken: vi.fn() }));
-vi.mock('@/services/nseSchemeService', () => ({ getNSESchemeMaster: vi.fn(async () => [{
+vi.mock('../services/nseAuth', () => ({ isNSEConnected: () => true, clearNSEToken: vi.fn() }));
+vi.mock('../services/nseSchemeService', () => ({ getNSESchemeMaster: vi.fn(async () => [{
   id: '1', schemeCode: 'TEST-GR', name: 'Test NSE Fund', amc: 'Test AMC', amcCode: 'TEST_MF', isin: 'TESTISIN',
   category: 'EQUITY', subcategory: 'T2', settlementType: 'T2', plan: 'Direct', active: true,
   purchaseAllowed: true, sipAllowed: true, purchaseMode: 'DP', minPurchase: 500, purchaseMultiplier: 1,

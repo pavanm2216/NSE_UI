@@ -1,5 +1,5 @@
 import React from 'react';
-import { getNSEFieldOptions, type NSEFieldDomain } from '@/services/nseDocumentMasters';
+import { getNSEFieldOptions, type NSEFieldDomain } from '../services/nseDocumentMasters';
 
 export default function NSEDocumentInput({ domain, field, value, onChange, maxLength, type = 'text', className = 'mt-1 w-full rounded border p-2' }: {
   domain: NSEFieldDomain; field: string; value: string; onChange: (value: string) => void;

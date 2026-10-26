@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSETransactionReport from './NSETransactionReport';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 it('preserves amount/units text, payment-pending remarks and masks account/PAN', async () => {
   sessionStorage.setItem(NSE_TOKEN_KEY, 'test-token');

@@ -1,9 +1,9 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 ﻿import React, { useRef, useState } from 'react';
-import { getNSERedemptions, NSE_REDEMPTION_FILTERS, type NSERedemptionRow } from '@/services/nseRedemptionService';
-import { indiaReportDates } from '@/services/nseOrderReportService';
-import type { RedemptionStatementRequest } from '@/types/nse';
+import { getNSERedemptions, NSE_REDEMPTION_FILTERS, type NSERedemptionRow } from '../services/nseRedemptionService';
+import { indiaReportDates } from '../services/nseOrderReportService';
+import type { RedemptionStatementRequest } from '../types/nse';
 const apiDate = (value: string) => value.split('-').reverse().join('-');
 const money = (value: number | null) => value == null ? 'Not reported' : value.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
 export default function NSERedemptionStatements() {

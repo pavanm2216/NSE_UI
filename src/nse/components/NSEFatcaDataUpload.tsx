@@ -1,9 +1,9 @@
-import { NSEButton, NSEHeading, NSESummary } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading, NSESummary } from '../components/NSEPresentation';
 import NSEFatcaFormFields, { fatcaFieldLabel } from './NSEFatcaFormFields';
-import { nseFieldDisplayValue } from '@/services/nseDocumentMasters';
-import { missingFatcaFields } from '@/services/nseFatcaPrefillService';
+import { nseFieldDisplayValue } from '../services/nseDocumentMasters';
+import { missingFatcaFields } from '../services/nseFatcaPrefillService';
 import React, { useEffect, useRef, useState } from 'react';
-import { buildNSEFatcaData, uploadNSEFatcaData } from '@/services/nseFatcaDataService';
+import { buildNSEFatcaData, uploadNSEFatcaData } from '../services/nseFatcaDataService';
 export default function NSEFatcaDataUpload({ embedded = false, onBusyChange, initialValues = {}, initialUbos = [], prefilled = false }: { embedded?: boolean; onBusyChange?: (busy: boolean) => void; initialValues?: Record<string, string>; initialUbos?: Record<string, string>[]; prefilled?: boolean } = {}) {
   const Container = embedded ? 'section' : 'details';
   const Heading = embedded ? NSEHeading : NSESummary;

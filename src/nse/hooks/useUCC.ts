@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getActiveUCCList, extractInvestorInfo, type UCCData } from '@/services/starmf/uccService';
-import { isBSEConnected } from '@/services/bseAuth';
+import { getActiveUCCList, extractInvestorInfo, type UCCData } from '../services/starmf/uccService';
+import { isBSEConnected } from '../services/bseAuth';
 
 export interface InvestorInfo {
   clientCode: string;

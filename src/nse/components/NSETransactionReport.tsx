@@ -1,7 +1,7 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { getNSETransactions, NSE_TRANSACTION_DATES, type NSETransactionInput } from '@/services/nseTransactionService';
+import { getNSETransactions, NSE_TRANSACTION_DATES, type NSETransactionInput } from '../services/nseTransactionService';
 export default function NSETransactionReport({ standalone = false }: { standalone?: boolean } = {}) {
   const Container = standalone ? 'section' : 'details';
   const Heading = standalone ? 'h2' : 'summary';

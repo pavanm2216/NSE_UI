@@ -1,12 +1,12 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import NSEAmcPause from './NSEAmcPause';
 import NSETopup from './NSETopup';
 import NSEEditSip from './NSEEditSip';
 import NSESipPause from './NSESipPause';
 import NSECancelSip from './NSECancelSip';
 import React, { useEffect, useRef, useState } from 'react';
-import { nseApi } from '@/services/nseApi';
-import { buildSipReportRequest } from '@/services/nseSipReportService';
+import { nseApi } from '../services/nseApi';
+import { buildSipReportRequest } from '../services/nseSipReportService';
 import NSEResendCommunication from './NSEResendCommunication';
 import NSESipMandateMapping from './NSESipMandateMapping';
 

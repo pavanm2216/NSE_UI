@@ -1,4 +1,4 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React from 'react';
 import { CalendarDays, ListChecks, History, ArrowRight } from 'lucide-react';
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';

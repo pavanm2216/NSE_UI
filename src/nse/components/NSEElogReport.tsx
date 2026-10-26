@@ -1,10 +1,10 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import NSEClientAuthorization from './NSEClientAuthorization';
 import NSEElogUpload from './NSEElogUpload';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { getNSEElogReport } from '@/services/nseElogReportService';
+import { getNSEElogReport } from '../services/nseElogReportService';
 export default function NSEElogReport({ onClose }: { onClose: () => void }) {
   const [consentOpen, setConsentOpen] = useState(false);
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });

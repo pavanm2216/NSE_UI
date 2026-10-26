@@ -1,8 +1,8 @@
-﻿import React from 'react';
+import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEAllotmentStatements from './NSEAllotmentStatements';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 describe('Mutual funds Investments allotments UI', () => {
   it('converts date inputs and displays actual units, allotment NAV and amount separately', async () => {
@@ -14,7 +14,7 @@ describe('Mutual funds Investments allotments UI', () => {
     expect(await screen.findByRole('heading', { name: 'Test Fund' })).toBeInTheDocument();
     expect(api).toHaveBeenCalledWith(expect.objectContaining({ from_date: '01-10-2026', to_date: '15-10-2026' }));
     expect(screen.getByRole('status')).toHaveTextContent('1 confirmed allotment records');
-    expect(screen.getByRole('status')).toHaveTextContent('₹10,000.00');
+    expect(screen.getByRole('status')).toHaveTextContent('?10,000.00');
     expect(screen.getByText('Allotment NAV')).toBeInTheDocument();
     expect(screen.getByText('Original order amount')).toBeInTheDocument();
     expect(update).toHaveBeenCalledWith(expect.arrayContaining([expect.objectContaining({ units: 1000, nav: 10, allottedAmount: 10000, orderAmount: 1000 })]));

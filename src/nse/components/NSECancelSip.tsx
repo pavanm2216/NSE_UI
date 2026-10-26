@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildSipCancellation, cancelNSESip, SIP_CANCELLATION_REASONS } from '@/services/nseSipCancellationService';
+import { buildSipCancellation, cancelNSESip, SIP_CANCELLATION_REASONS } from '../services/nseSipCancellationService';
 
 export default function NSECancelSip({ sipId, clientCode, scheme, investor, onCancelled }: { sipId: string; clientCode: string; scheme: string; investor: string; onCancelled: () => void }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);

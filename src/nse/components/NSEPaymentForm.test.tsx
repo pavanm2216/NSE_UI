@@ -1,10 +1,10 @@
-ï»¿import React from 'react';
+import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEPaymentForm from './NSEPaymentForm';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 import type { NSEDemoOrder } from './NSEInvestmentFlow';
-const order: NSEDemoOrder = { id: 'LOCALREF', exchangeOrderId: '432160000001', clientCode: 'TEST001', live: true, orderAccepted: true, fund: 'Test Fund', mode: 'buy', amount: 2000, day: 0, installments: 1, investor: 'Test Investor', bank: 'Test Bank â€¢â€¢â€¢â€¢ 2222', status: 'pending' };
+const order: NSEDemoOrder = { id: 'LOCALREF', exchangeOrderId: '432160000001', clientCode: 'TEST001', live: true, orderAccepted: true, fund: 'Test Fund', mode: 'buy', amount: 2000, day: 0, installments: 1, investor: 'Test Investor', bank: 'Test Bank •••• 2222', status: 'pending' };
 const investor = { name: 'Test Investor', clientCode: 'TEST001', kycType: 'KRA COMPLIANT', kycVerified: true, bank: { id: 'BANK1', label: order.bank, status: 'ACTIVE', active: true, isDefault: true, accountNo: '000011112222', ifsc: 'TEST0001234' } };
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 describe('Mutual funds payment UI', () => {

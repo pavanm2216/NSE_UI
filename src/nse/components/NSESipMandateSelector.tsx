@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NSEButton } from './NSEPresentation';
 import { MandateForm } from './NSEMandates';
 import NSEMandateCard from './NSEMandateCard';
-import { nseApi } from '@/services/nseApi';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
+import { nseApi } from '../services/nseApi';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
 
 type Mandate = { id: string; status: string; amount: number; bank: string; raw: Record<string, unknown> };
 export default function NSESipMandateSelector({ investor, amount, onChange }: {

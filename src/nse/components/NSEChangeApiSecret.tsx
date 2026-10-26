@@ -1,7 +1,7 @@
-import { NSEButton } from '@/components/nse/NSEPresentation';
+import { NSEButton } from '../components/NSEPresentation';
 import React, { useState } from 'react';
 import { X, Lock, RefreshCw, CheckCircle2 } from 'lucide-react';
-import { changeNSEApiSecret } from '@/services/nseSecretService';
+import { changeNSEApiSecret } from '../services/nseSecretService';
 
 const NSEChangeApiSecret: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [current, setCurrent] = useState('');

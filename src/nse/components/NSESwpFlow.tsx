@@ -1,9 +1,9 @@
-import { NSEButton, NSEDialogTitle } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import NSEInvestorSelector from './NSEInvestorSelector';
-import { buildNSESwp, registerNSESwp, SWP_FREQUENCIES, type NSESwpInput } from '@/services/nseSwpService';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
+import { buildNSESwp, registerNSESwp, SWP_FREQUENCIES, type NSESwpInput } from '../services/nseSwpService';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
 import type { NSEPlanScheme } from './NSEPlanFlow';
 import type { NSEDemoOrder } from './NSEInvestmentFlow';
 const control = 'mt-1 w-full rounded-lg border border-gray-300 bg-white p-2 text-sm';

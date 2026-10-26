@@ -1,7 +1,7 @@
-import { NSEButton } from '@/components/nse/NSEPresentation';
+import { NSEButton } from '../components/NSEPresentation';
 ﻿import React, { useEffect, useRef, useState } from 'react';
-import { getNSEInvestors, type NSEInvestor, type NSEInvestorSelection } from '@/services/nseInvestorService';
-import { checkNSEClientKyc, type NSEKycResult } from '@/services/nseKycService';
+import { getNSEInvestors, type NSEInvestor, type NSEInvestorSelection } from '../services/nseInvestorService';
+import { checkNSEClientKyc, type NSEKycResult } from '../services/nseKycService';
 export default function NSEInvestorSelector({ onChange, requireKyc = true }: { onChange: (selection: NSEInvestorSelection | null) => void; requireKyc?: boolean }) {
   const [code, setCode] = useState(''); const [pan, setPan] = useState('');
   const [clients, setClients] = useState<NSEInvestor[]>([]); const [clientCode, setClientCode] = useState('');

@@ -4,7 +4,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEWorkflowGuide from './NSEWorkflowGuide';
 import NSEKycStatus from './NSEKycStatus';
 import NSEClientReadiness from './NSEClientReadiness';
-import { nseApi, NSE_TOKEN_KEY } from '@/services/nseApi';
+import { nseApi, NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 it('opens the relevant task only on an explicit guidance action and explains searched terms', () => {
  const action = vi.fn(); render(<NSEWorkflowGuide section="clients" onAction={action} />);

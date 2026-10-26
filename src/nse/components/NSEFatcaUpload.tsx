@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading, NSESummary } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading, NSESummary } from '../components/NSEPresentation';
 import React, { useEffect, useRef, useState } from 'react';
-import { uploadNSEFatcaImage, validateNSEFatcaImage } from '@/services/nseFatcaUploadService';
+import { uploadNSEFatcaImage, validateNSEFatcaImage } from '../services/nseFatcaUploadService';
 export default function NSEFatcaUpload({ embedded = false, onBusyChange, initialPan = '', onSelectIndividual }: { embedded?: boolean; onBusyChange?: (busy: boolean) => void; initialPan?: string; onSelectIndividual?: () => void } = {}) {
   const Container = embedded ? 'section' : 'details';
   const Heading = embedded ? NSEHeading : NSESummary;

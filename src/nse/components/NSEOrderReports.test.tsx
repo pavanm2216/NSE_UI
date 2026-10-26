@@ -1,8 +1,8 @@
-﻿import React from 'react';
+import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEOrderReports from './NSEOrderReports';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 describe('Mutual funds Orders report UI', () => {
   it('loads final order status using documented filter values and displays actual remarks', async () => {

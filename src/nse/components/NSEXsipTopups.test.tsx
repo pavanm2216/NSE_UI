@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEXsipTopups from './NSEXsipTopups';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('maps documented top-up fields and parent registration', async () => {
   vi.spyOn(nseApi, 'xsipTopups').mockResolvedValue({ response_status: 'S', report_data: [{ scheme_name: 'Test fund', reg_no: '61377', principle_sip_reg_no: '123', sip_xsip_amount: '10000', top_up_amount: '500', top_up_frequency: 'ANNUALLY', top_up_status: 'ACTIVE', date_of_activation: '03-Mar-2025', last_child_sip_reg_no: '456' }] });

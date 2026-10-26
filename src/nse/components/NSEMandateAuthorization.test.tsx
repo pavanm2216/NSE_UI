@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEMandateAuthorization from './NSEMandateAuthorization';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('fetches only on click and opens returned holder links without claiming approval', async () => {
   const api = vi.spyOn(nseApi, 'communicationLink').mockResolvedValue({ productType: 'MANDATE_AUTH', productRefId: '123', firstHolderLink: 'https://nseinvest.com/mf/test' });

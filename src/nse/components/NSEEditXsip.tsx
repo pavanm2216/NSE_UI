@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildXsipModification, modifyNSEXsip, XSIP_EDIT_FIELDS, type XsipEdits } from '@/services/nseXsipModificationService';
+import { buildXsipModification, modifyNSEXsip, XSIP_EDIT_FIELDS, type XsipEdits } from '../services/nseXsipModificationService';
 export default function NSEEditXsip({ id, client, scheme, current }: { id: string; client: string; scheme: string; current: XsipEdits }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);
   const [edits, setEdits] = useState<XsipEdits>({}), [remarks, setRemarks] = useState('');

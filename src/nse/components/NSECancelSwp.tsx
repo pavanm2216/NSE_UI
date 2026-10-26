@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildSwpCancellation, cancelNSESwp } from '@/services/nseSwpCancellationService';
+import { buildSwpCancellation, cancelNSESwp } from '../services/nseSwpCancellationService';
 export default function NSECancelSwp({ id, client, scheme, onCancelled }: { id: string; client: string; scheme: string; onCancelled: () => void }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);
   const [remarks, setRemarks] = useState(''), [error, setError] = useState(''), [message, setMessage] = useState('');

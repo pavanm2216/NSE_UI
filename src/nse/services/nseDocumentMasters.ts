@@ -1,4 +1,4 @@
-import document from '@/data/nseDocumentMasters.json';
+import document from '../data/nseDocumentMasters.json';
 
 export type NSECodeOption = readonly [string, string];
 export type NSEFieldDomain = 'client' | 'fatca';

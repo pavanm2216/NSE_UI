@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEEditStp from './NSEEditStp';
-import * as service from '@/services/nseStpModificationService';
+import * as service from '../services/nseStpModificationService';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('reviews actual changes and requires confirmation before a single submission', async () => {
   const modify = vi.spyOn(service, 'modifyNSEStp').mockResolvedValue('Mutual funds confirmed the STP modification');

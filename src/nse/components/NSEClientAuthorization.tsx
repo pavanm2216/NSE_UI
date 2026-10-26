@@ -1,9 +1,9 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import NSEClientReadiness from './NSEClientReadiness';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogDescription } from '@/components/ui/dialog';
-import { getClientAuthorizations } from '@/services/nseClientAuthorizationService';
+import { getClientAuthorizations } from '../services/nseClientAuthorizationService';
 export default function NSEClientAuthorization({ onClose }: { onClose: () => void }) {
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
   const [filters, setFilters] = useState({ from_date: today, to_date: today, client_code: '', auth_status: '', date_type: 'AUTH_SENT_DATE' });

@@ -1,7 +1,7 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { getNSEDelivery, NSEDeliveryInput } from '@/services/nseDeliveryService';
+import { getNSEDelivery, NSEDeliveryInput } from '../services/nseDeliveryService';
 const groups = [
   ['Order and settlement', ['order_date', 'sett_no', 'sett_type', 'isin', 'amount', 'alloted_units', 'nav', 'depository', 'account_no', 'member_unique_id']],
   ['Units delivered', ['units_delivered', 'date_of_delivery']],

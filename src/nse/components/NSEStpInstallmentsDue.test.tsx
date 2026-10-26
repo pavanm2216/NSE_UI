@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 import NSEStpInstallmentsDue from './NSEStpInstallmentsDue';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('fetches from the selected STP and maps documented transfer fields', async () => {
   const api = vi.spyOn(nseApi, 'stpInstallmentsDue').mockResolvedValue({ response_status: 'S', report_data: [{ stp_registration_no: '123', from_scheme_name: 'Source fund', to_scheme_name: 'Destination fund', transfer_amount: '0', transfer_units: '333', due_date: '05 APR 2025', prev_transfer_date: '05 MAR 2025', no_of_transfer_completed: '10', dp_trans: 'P' }] });

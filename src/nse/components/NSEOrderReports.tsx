@@ -1,10 +1,10 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import NSEUtrUpdate from './NSEUtrUpdate';
 import NSECancelOrder from './NSECancelOrder';
 ﻿import React, { useRef, useState } from 'react';
-import { getNSEOrderReport, indiaReportDates, NSE_ORDER_FILTERS, type NSEOrderReportRow } from '@/services/nseOrderReportService';
-import type { OrderStatusRequest } from '@/types/nse';
+import { getNSEOrderReport, indiaReportDates, NSE_ORDER_FILTERS, type NSEOrderReportRow } from '../services/nseOrderReportService';
+import type { OrderStatusRequest } from '../types/nse';
 export default function NSEOrderReports({ onRows }: { onRows: (rows: NSEOrderReportRow[], provisional: boolean) => void }) {
   const [defaults] = useState(indiaReportDates);
   const [filters, setFilters] = useState<OrderStatusRequest>({ from_date: defaults.from, to_date: defaults.to, trans_type: 'ALL', order_type: 'ALL', sub_order_type: 'ALL', client_code: '', order_status: '', settlement_type: '', order_ids: '', member_unique_ids: '' });

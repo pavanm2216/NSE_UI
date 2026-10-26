@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSERedemptionStatements from './NSERedemptionStatements';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('loads actual statement fields and makes no bank payout claim', async () => {
   const api = vi.spyOn(nseApi, 'redemptions').mockResolvedValue({ response_status: 'S', report_data: [{ orderno: '123', clientcode: 'TEST', schemecode: 'TEST-GR', scheme_name: 'Test fund', qty: '100', allottedqty: '5000', allottednav: '10', allottedamt: '50000', validflag: 'Y', load_amount: '0', tax_amount: '0' }] });

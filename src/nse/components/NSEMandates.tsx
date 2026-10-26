@@ -1,15 +1,15 @@
 import { Landmark, PlusCircle } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import NSEFlowSteps from './NSEFlowSteps';
-import { NSEButton, NSEDialogTitle, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import NSEInvestorSelector from './NSEInvestorSelector';
 import NSEExistingMandates from './NSEExistingMandates';
 import NSEMandateCard from './NSEMandateCard';
-import { buildNSEMandate, registerNSEMandate, NSE_ACCOUNT_TYPES, type NSEMandateInput, type NSEMandateRecord } from '@/services/nseMandateService';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
-import { NSEApiError } from '@/services/nseApi';
+import { buildNSEMandate, registerNSEMandate, NSE_ACCOUNT_TYPES, type NSEMandateInput, type NSEMandateRecord } from '../services/nseMandateService';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
+import { NSEApiError } from '../services/nseApi';
 const primary = 'w-full rounded-lg bg-[#102B78] px-4 py-3 text-sm font-semibold text-white disabled:bg-gray-200 disabled:text-gray-500';
 const input = 'mt-2 w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-normal';
 export function MandateForm({ onClose, onRecord, initialSelection, embedded = false, onBusyChange }: { embedded?: boolean; onBusyChange?: (busy: boolean) => void; onClose: () => void; onRecord: (record: NSEMandateRecord) => void; initialSelection?: NSEInvestorSelection }) {

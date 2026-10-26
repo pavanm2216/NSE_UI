@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSECancelSip from './NSECancelSip';
-import * as service from '@/services/nseSipCancellationService';
+import * as service from '../services/nseSipCancellationService';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('requires reason, review and explicit confirmation before sending once', async () => {
   const cancel = vi.spyOn(service, 'cancelNSESip').mockResolvedValue('Cancellation confirmed'); const done = vi.fn();

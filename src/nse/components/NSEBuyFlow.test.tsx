@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEBuyFlow from './NSEBuyFlow';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 vi.mock('./NSEInvestorSelector', () => import('@/test/mockNSEInvestorSelector'));
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 const fund = { name: 'Test Fund', amc: 'Test AMC', plan: 'Direct', schemeCode: 'Mutual funds-SCHEME', minPurchase: 500 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSESipFlow from './NSESipFlow';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 
 vi.mock('./NSEInvestorSelector', () => import('@/test/mockNSEInvestorSelector'));
 beforeEach(() => { vi.spyOn(nseApi, 'mandateStatus').mockResolvedValue({ response_status: 'S', report_data: [{ clientCode: 'TESTCL001', mandateId: '123456', status: 'APPROVED', amount: '5000', bankName: 'Test bank' }] }); });

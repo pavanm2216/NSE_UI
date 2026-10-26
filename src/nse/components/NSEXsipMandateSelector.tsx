@@ -1,6 +1,6 @@
-import { NSEButton } from '@/components/nse/NSEPresentation';
+import { NSEButton } from '../components/NSEPresentation';
 import React, { useEffect, useRef, useState } from 'react';
-import { loadXSIPMandates, type XSIPApprovedMandate } from '@/services/nseXsipService';
+import { loadXSIPMandates, type XSIPApprovedMandate } from '../services/nseXsipService';
 export default function NSEXsipMandateSelector({ clientCode, onChange }: { clientCode: string; onChange: (value: XSIPApprovedMandate | null) => void }) {
   const [rows, setRows] = useState<XSIPApprovedMandate[]>([]), [selected, setSelected] = useState('');
   const [busy, setBusy] = useState(false), [error, setError] = useState('');

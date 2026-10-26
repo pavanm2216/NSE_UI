@@ -4,7 +4,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSECancelSwp from './NSECancelSwp';
 import NSECancelDailyXsip from './NSECancelDailyXsip';
 import NSEStepups from './NSEStepups';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 const mockFetch = (body: unknown) => {
   sessionStorage.setItem(NSE_TOKEN_KEY, 'test-token');

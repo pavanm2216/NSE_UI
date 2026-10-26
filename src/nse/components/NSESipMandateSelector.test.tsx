@@ -2,8 +2,8 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import NSESipMandateSelector from './NSESipMandateSelector';
-import { nseApi } from '@/services/nseApi';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
+import { nseApi } from '../services/nseApi';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
 
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 const investor: NSEInvestorSelection = { clientCode: 'PK2216', name: 'Investor', kycType: 'KYC', bank: { id: 'bank1', label: 'Bank •••• 1782', active: true, status: 'ACTIVE', isDefault: true } };

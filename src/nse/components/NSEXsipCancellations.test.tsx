@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEXsipCancellations from './NSEXsipCancellations';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('maps the documented cancellation fields and reason without submitting a cancellation', async () => {
   const api = vi.spyOn(nseApi, 'xsipCancellations').mockResolvedValue({ response_status: 'S', report_data: [{ scheme_name: 'Test fund', xsip_registration_no: '123', xsip_cancellation_date: '03/10/2025 09:00:05 PM', status: 'CXL', nse_mandate_id: '456', installments_amt: '1000', remark: 'Three consecutive invalid installments' }] });

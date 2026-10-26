@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildXsipCancellation, cancelNSEXsip, XSIP_CANCELLATION_REASONS } from '@/services/nseXsipCancellationService';
+import { buildXsipCancellation, cancelNSEXsip, XSIP_CANCELLATION_REASONS } from '../services/nseXsipCancellationService';
 
 export default function NSECancelXsip({ sipId, clientCode, scheme, investor, onCancelled }: { sipId: string; clientCode: string; scheme: string; investor: string; onCancelled: () => void }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);

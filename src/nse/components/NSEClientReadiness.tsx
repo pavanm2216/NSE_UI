@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { NSEButton } from './NSEPresentation';
 import NSEResendCommunication from './NSEResendCommunication';
-import { getNSEHolderLinks } from '@/services/nseCommunicationService';
+import { getNSEHolderLinks } from '../services/nseCommunicationService';
 const value = (row: Record<string, unknown>, key: string) => typeof row[key] === 'string' ? (row[key] as string).trim() : '';
 function reported(text: string) { return /^Y$/i.test(text) ? 'Yes' : /^N$/i.test(text) ? 'No' : text || 'Not reported'; }
 export default function NSEClientReadiness({ row }: { row: Record<string, unknown> }) {

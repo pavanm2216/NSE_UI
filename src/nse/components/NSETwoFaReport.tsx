@@ -1,7 +1,7 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { getNSETwoFa, NSE_TWOFA_PRODUCTS } from '@/services/nseTwoFaService';
+import { getNSETwoFa, NSE_TWOFA_PRODUCTS } from '../services/nseTwoFaService';
 const groups = [
   ['Registration', ['product_reg_datetime', 'client_code', 'mode_of_holding', 'folio_no']],
   ['First holder', ['primary_holder_name', 'primary_holder_authentication_status', 'primary_holder_authentication_datetime', 'primary_holder_reply_time']],

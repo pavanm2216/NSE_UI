@@ -1,5 +1,5 @@
-﻿import { nseApi } from './nseApi';
-import type { OrderStatusRequest, OrderStatusResponse } from '@/types/nse';
+import { nseApi } from './nseApi';
+import type { OrderStatusRequest, OrderStatusResponse } from '../types/nse';
 export const NSE_ORDER_FILTERS = {
   trans_type: ['ALL', 'P', 'R'], order_type: ['ALL', 'NRM', 'SIP', 'XSP', 'STP'],
   sub_order_type: ['ALL', 'NRM', 'SPOR', 'SWH', 'STP'],

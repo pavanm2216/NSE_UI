@@ -1,10 +1,10 @@
-import { NSEButton, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import NSEDocumentInput from './NSEDocumentInput';
-import { nseFieldDisplayValue } from '@/services/nseDocumentMasters';
-import { missingFatcaFields } from '@/services/nseFatcaPrefillService';
+import { nseFieldDisplayValue } from '../services/nseDocumentMasters';
+import { missingFatcaFields } from '../services/nseFatcaPrefillService';
 import React, { useEffect, useRef, useState } from 'react';
 import NSEFatcaFormFields, { fatcaFieldLabel, FatcaSection } from './NSEFatcaFormFields';
-import { buildNSEFatcaCommon, uploadNSEFatcaCommon, FATCA_ENTITY_FIELDS, FATCA_UBO_FIELDS } from '@/services/nseFatcaCommonService';
+import { buildNSEFatcaCommon, uploadNSEFatcaCommon, FATCA_ENTITY_FIELDS, FATCA_UBO_FIELDS } from '../services/nseFatcaCommonService';
 
 export default function NSEFatcaCommonUpload({ embedded = false, onBusyChange, initialValues = {}, initialUbos = [], prefilled = false }: { embedded?: boolean; onBusyChange?: (busy: boolean) => void; initialValues?: Record<string, string>; initialUbos?: Record<string, string>[]; prefilled?: boolean } = {}) {
   const Container = embedded ? 'section' : 'details';

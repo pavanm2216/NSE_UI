@@ -1,5 +1,5 @@
-﻿import { nseApi } from './nseApi';
-import type { PurchasePaymentRequest } from '@/types/nse';
+import { nseApi } from './nseApi';
+import type { PurchasePaymentRequest } from '../types/nse';
 export const NSE_PAYMENT_MODES = { netbanking: 'Netbanking', upi: 'UPI', mandate: 'Bank mandate', cheque: 'Cheque', neft: 'NEFT / RTGS' } as const;
 export type NSEPaymentMode = keyof typeof NSE_PAYMENT_MODES;
 export const NSE_PAYMENT_API_CODES: Record<NSEPaymentMode, string> = { netbanking: 'NETBANKING', upi: 'UPI', mandate: 'MANDATE', cheque: 'CHEQUE', neft: 'RTGS/NEFT' };

@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import NSENftUpdates from './NSENftUpdates';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 const mock = (body: unknown, status = 200) => { sessionStorage.setItem(NSE_TOKEN_KEY, 'test-token'); const fetcher = vi.fn().mockResolvedValue({ ok: status === 200, status, text: async () => JSON.stringify(body) }); vi.stubGlobal('fetch', fetcher); return fetcher; };
 const fill = (label: string, value: string) => fireEvent.change(screen.getAllByLabelText(label)[0], { target: { value } });

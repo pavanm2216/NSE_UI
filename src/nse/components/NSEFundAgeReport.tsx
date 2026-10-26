@@ -1,7 +1,7 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { getNSEFundAge, NSEFundAgeInput } from '@/services/nseFundAgeService';
+import { getNSEFundAge, NSEFundAgeInput } from '../services/nseFundAgeService';
 const labels: Record<string, string> = { clientcode: 'Client code', clientname: 'Investor', schemecode: 'Scheme code', schemename: 'Scheme', buyvalue: 'Order value', orderstatus: 'Order status', settlementno: 'Settlement number', settlementtype: 'Settlement type', dp_folio_no: 'Depository account', foliono: 'Folio', accountno: 'Bank account', funds_received_status: 'Fund receipt code (Mutual funds)', credit_confirmation_on_date: 'Credit confirmation date' };
 const groups = [
   ['Order', ['date', 'clientcode', 'clientname', 'schemecode', 'schemename', 'isin', 'buyvalue', 'orderstatus']],

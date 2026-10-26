@@ -3,9 +3,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import NSEInvestorSelector from './NSEInvestorSelector';
 import NSEInvestmentFlow from './NSEInvestmentFlow';
-import { nseApi } from '@/services/nseApi';
-import { checkNSEClientKyc } from '@/services/nseKycService';
-vi.mock('@/services/nseKycService', () => ({ checkNSEClientKyc: vi.fn() }));
+import { nseApi } from '../services/nseApi';
+import { checkNSEClientKyc } from '../services/nseKycService';
+vi.mock('../services/nseKycService', () => ({ checkNSEClientKyc: vi.fn() }));
 beforeEach(() => { vi.mocked(checkNSEClientKyc).mockReset(); vi.mocked(checkNSEClientKyc).mockResolvedValue({ status: 'verified', verified: true, message: 'KYC verified' }); });
 const client = {
   client_code: 'TEST001', primary_holder_first_name: 'Test', primary_holder_middle_name: ' ', primary_holder_last_name: 'Investor', primary_holder_kyc_type: 'KRA COMPLIANT',

@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildStpModification, modifyNSEStp, STP_EDIT_FIELDS, type StpEdits } from '@/services/nseStpModificationService';
+import { buildStpModification, modifyNSEStp, STP_EDIT_FIELDS, type StpEdits } from '../services/nseStpModificationService';
 export default function NSEEditStp({ id, client, scheme, current, mode }: { id: string; client: string; scheme: string; current: StpEdits; mode: string }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);
   const [edits, setEdits] = useState<StpEdits>({}), [remarks, setRemarks] = useState('');

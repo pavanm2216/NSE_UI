@@ -1,5 +1,5 @@
-﻿import { nseApi } from './nseApi';
-import type { AllotmentStatementRequest, StatementReportResponse } from '@/types/nse';
+import { nseApi } from './nseApi';
+import type { AllotmentStatementRequest, StatementReportResponse } from '../types/nse';
 export const NSE_ALLOTMENT_FILTERS = {
   order_type: ['ALL', 'NRM', 'STP', 'SWP'], sub_order_type: ['ALL', 'NRM', 'SWITCH', 'STP'],
   transaction_type: ['', 'P', 'R'], order_status: ['', 'All', 'VALID', 'INVALID'],

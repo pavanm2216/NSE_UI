@@ -1,7 +1,7 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { getNSELifecycle, NSE_LIFECYCLE_PRODUCTS } from '@/services/nseLifecycleService';
+import { getNSELifecycle, NSE_LIFECYCLE_PRODUCTS } from '../services/nseLifecycleService';
 const groups = [
   ['Order', ['product_reg_datetime', 'client_code', 'primary_holder_name', 'folio_no', 'order_status', 'order_remark']],
   ['Holder authorization', ['primary_holder_authentication_status', 'primary_holder_authentication_datetime', 'second_holder_authentication_status', 'second_holder_authentication_datetime', 'third_holder_authentication_status', 'third_holder_authentication_datetime']],

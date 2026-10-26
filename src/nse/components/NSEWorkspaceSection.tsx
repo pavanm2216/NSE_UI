@@ -1,5 +1,5 @@
 import NSENftUpdates from './NSENftUpdates';
-import { NSEIcon, NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEIcon, NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useEffect, useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { ArrowRight } from 'lucide-react';

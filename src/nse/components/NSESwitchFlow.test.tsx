@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSESwitchFlow from './NSESwitchFlow';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
 
 vi.mock('./NSEInvestorSelector', () => import('@/test/mockNSEInvestorSelector'));
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });

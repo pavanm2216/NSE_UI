@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEMandateImageUpload from './NSEMandateImageUpload';
-import * as service from '@/services/nseMandateImageService';
+import * as service from '../services/nseMandateImageService';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('uploads only after selection and click, then shows confirmation without approval', async () => {
   const upload = vi.spyOn(service, 'uploadNSEMandateImage').mockResolvedValue('Mandate Uploaded Successfully.');

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NSEDocumentInput from './NSEDocumentInput';
 import { NSEButton } from './NSEPresentation';
-import { FATCA_INDIVIDUAL_FIELDS } from '@/services/nseFatcaDataService';
+import { FATCA_INDIVIDUAL_FIELDS } from '../services/nseFatcaDataService';
 
 const labels: Record<string, string> = {
   tax_status: 'Tax status', co_bir_inc: 'Country of birth', tax_res1: 'Tax residence country',

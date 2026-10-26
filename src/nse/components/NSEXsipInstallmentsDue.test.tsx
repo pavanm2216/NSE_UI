@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEXsipInstallmentsDue from './NSEXsipInstallmentsDue';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('loads a future date range and maps due and previous payment fields', async () => {
   const api = vi.spyOn(nseApi, 'xsipInstallmentsDue').mockResolvedValue({ response_status: 'S', report_data: [{ scheme_name: 'Test fund', sip_reg_number: '123', mandate_id: '456', installment_amt: '1000', due_date: '22 OCT 2026', prev_paid_date: '22 SEP 2026', no_of_installments_paid: '1', total_installment_amt_paid: '1000' }] });

@@ -3,11 +3,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, useLocation, useNavigate } from 'react-router-dom';
 import NSEDashboard from './NSEDashboard';
-import { getNSESchemeMaster, parseNSESchemeMaster } from '@/services/nseSchemeService';
-import fixture from '@/services/fixtures/nse-schemes.txt?raw';
-import { nseApi } from '@/services/nseApi';
-vi.mock('@/services/nseAuth', () => ({ isNSEConnected: () => true, clearNSEToken: vi.fn() }));
-vi.mock('@/services/nseSchemeService', async importOriginal => ({ ...await importOriginal<typeof import('@/services/nseSchemeService')>(), getNSESchemeMaster: vi.fn() }));
+import { getNSESchemeMaster, parseNSESchemeMaster } from '../services/nseSchemeService';
+import fixture from '../services/fixtures/nse-schemes.txt?raw';
+import { nseApi } from '../services/nseApi';
+vi.mock('../services/nseAuth', () => ({ isNSEConnected: () => true, clearNSEToken: vi.fn() }));
+vi.mock('../services/nseSchemeService', async importOriginal => ({ ...await importOriginal<typeof import('../services/nseSchemeService')>(), getNSESchemeMaster: vi.fn() }));
 const base = parseNSESchemeMaster(fixture)[0];
 function RouteProbe() {
   const location = useLocation(); const navigate = useNavigate();

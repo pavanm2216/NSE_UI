@@ -1,4 +1,4 @@
-import type { XSIPDetail, XSIPRegistrationResponse, XSIPRegistrationRequest } from '@/types/nse';
+import type { XSIPDetail, XSIPRegistrationResponse, XSIPRegistrationRequest } from '../types/nse';
 import { nseApi } from './nseApi';
 import { buildNSEPlan, type NSESipInput } from './nseSipService';
 

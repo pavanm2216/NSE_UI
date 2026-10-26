@@ -1,9 +1,9 @@
-import { NSEButton, NSEDialogTitle, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSEHeading } from '../components/NSEPresentation';
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { CheckCircle2, Clock, XCircle } from 'lucide-react';
 import NSEInvestorSelector from './NSEInvestorSelector';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
 import NSEBuyFlow from './NSEBuyFlow';
 import NSESipFlow from './NSESipFlow';
 

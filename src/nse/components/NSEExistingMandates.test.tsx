@@ -1,8 +1,8 @@
-ï»¿import React from 'react';
+import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEExistingMandates from './NSEExistingMandates';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 describe("Existing Mutual funds mandates", () => {
   it('waits for a client search and masks account numbers', async () => {
@@ -12,7 +12,7 @@ describe("Existing Mutual funds mandates", () => {
     fireEvent.click(screen.getByRole('button', { name: "Load Mutual funds mandates" }));
     expect(await screen.findByRole('heading', { name: 'Mandate 2026101510018' })).toBeInTheDocument();
     expect(api).toHaveBeenCalledWith({ client_code: 'TEST001' });
-    expect(screen.getByText('â€¢â€¢â€¢â€¢ 2222')).toBeInTheDocument();
+    expect(screen.getByText('•••• 2222')).toBeInTheDocument();
     expect(screen.queryByText('000011112222')).not.toBeInTheDocument();
   });
   it('filters by client code and clears stale records before refetching', async () => {

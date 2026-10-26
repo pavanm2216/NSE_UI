@@ -1,11 +1,11 @@
-import { NSEButton, NSEDialogTitle, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSEHeading } from '../components/NSEPresentation';
 ﻿import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import NSEInvestorSelector from './NSEInvestorSelector';
 import NSEPlanChecks from './NSEPlanChecks';
-import { buildNSEXsip, registerNSEXsip, NSE_XSIP_FREQUENCIES, type NSEXsipInput, type XSIPApprovedMandate } from '@/services/nseXsipService';
+import { buildNSEXsip, registerNSEXsip, NSE_XSIP_FREQUENCIES, type NSEXsipInput, type XSIPApprovedMandate } from '../services/nseXsipService';
 import NSEXsipMandateSelector from './NSEXsipMandateSelector';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
 import type { NSEFund, NSEDemoOrder } from './NSEInvestmentFlow';
 const primary = 'w-full rounded-lg bg-[#102B78] px-4 py-3 text-sm font-semibold text-white disabled:bg-gray-200 disabled:text-gray-500';
 const inputClass = 'mt-2 w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-normal';

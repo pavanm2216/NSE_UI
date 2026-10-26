@@ -1,5 +1,5 @@
-﻿import { nseApi, NSE_TOKEN_KEY } from './nseApi';
-export type { LoginResponse as NSELoginResponse } from '@/types/nse';
+import { nseApi, NSE_TOKEN_KEY } from './nseApi';
+export type { LoginResponse as NSELoginResponse } from '../types/nse';
 
 export async function loginToNSE(username: string, password: string): Promise<string> {
   if (!username.trim()) throw new Error('Username is required');

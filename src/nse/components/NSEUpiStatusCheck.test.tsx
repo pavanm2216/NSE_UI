@@ -1,10 +1,10 @@
-ï»¿import React from 'react';
+import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEUpiStatusCheck from './NSEUpiStatusCheck';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 import type { NSEDemoOrder } from './NSEInvestmentFlow';
-const order: NSEDemoOrder = { id: 'LOCAL', live: true, orderAccepted: true, exchangeOrderId: '432160000001', clientCode: 'TEST001', amount: 2000, fund: 'Test Fund', investor: 'Test Investor', bank: 'Test Bank â€¢â€¢â€¢â€¢ 1234', mode: 'buy', status: 'pending', day: 0, installments: 1, paymentMode: 'upi', paymentState: 'initiated' };
+const order: NSEDemoOrder = { id: 'LOCAL', live: true, orderAccepted: true, exchangeOrderId: '432160000001', clientCode: 'TEST001', amount: 2000, fund: 'Test Fund', investor: 'Test Investor', bank: 'Test Bank •••• 1234', mode: 'buy', status: 'pending', day: 0, installments: 1, paymentMode: 'upi', paymentState: 'initiated' };
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 describe('UPI status UI', () => {
   it('rejects an authorization URL token without sending a status request', async () => {

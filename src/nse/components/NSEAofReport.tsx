@@ -1,8 +1,8 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { getNSEAofReport } from '@/services/nseAofReportService';
+import { getNSEAofReport } from '../services/nseAofReportService';
 import NSEAofUpload from './NSEAofUpload';
 export default function NSEAofReport({ onClose }: { onClose: () => void }) {
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });

@@ -1,7 +1,7 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useEffect, useRef, useState } from 'react';
-import { nseApi } from '@/services/nseApi';
-import { buildXsipTopupReportRequest } from '@/services/nseXsipTopupReportService';
+import { nseApi } from '../services/nseApi';
+import { buildXsipTopupReportRequest } from '../services/nseXsipTopupReportService';
 
 export default function NSEXsipTopups({ plan }: { plan?: { id: string; name: string } } = {}) {
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });

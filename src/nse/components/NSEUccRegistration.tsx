@@ -1,11 +1,11 @@
-import { NSEButton, NSEDialogTitle, NSEHeading } from '@/components/nse/NSEPresentation';
-import { getUccProfile, getUccProfileFields, normalizeUccProfile } from '@/services/nseUccProfileService';
-import { UCC_NOMINEE_FIELDS, getUccNomineeCount, getUccNomineeShare } from '@/services/nseUccNomineeService';
-import { buildNSEUccRegistration, registerNSEUcc, type NSEUccRegistrationResult } from '@/services/nseUccRegistrationService';
-import { getNSEFieldOptions, type NSECodeOption } from '@/services/nseDocumentMasters';
+import { NSEButton, NSEDialogTitle, NSEHeading } from '../components/NSEPresentation';
+import { getUccProfile, getUccProfileFields, normalizeUccProfile } from '../services/nseUccProfileService';
+import { UCC_NOMINEE_FIELDS, getUccNomineeCount, getUccNomineeShare } from '../services/nseUccNomineeService';
+import { buildNSEUccRegistration, registerNSEUcc, type NSEUccRegistrationResult } from '../services/nseUccRegistrationService';
+import { getNSEFieldOptions, type NSECodeOption } from '../services/nseDocumentMasters';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { validateNSEUccDraft } from '@/services/nseUccDraftService';
+import { validateNSEUccDraft } from '../services/nseUccDraftService';
 
 const groups = [
   { title: 'Holder details', fields: [['client_code', 'Client code', 10], ['primary_holder_first_name', 'First name', 70], ['primary_holder_middle_name', 'Middle name (optional)', 70], ['primary_holder_last_name', 'Last name (optional)', 70], ['gender', 'Gender', 1], ['primary_holder_dob_incorporation', 'Date of birth', 10], ['occupation_code', 'Occupation', 5], ['primary_holder_pan', 'PAN', 10]] },

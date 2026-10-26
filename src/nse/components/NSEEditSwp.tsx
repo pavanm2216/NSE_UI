@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildSwpModification, modifyNSESwp, SWP_EDIT_FIELDS, type SwpEdits } from '@/services/nseSwpModificationService';
+import { buildSwpModification, modifyNSESwp, SWP_EDIT_FIELDS, type SwpEdits } from '../services/nseSwpModificationService';
 export default function NSEEditSwp({ id, client, scheme, current, mode }: { id: string; client: string; scheme: string; current: SwpEdits; mode: string }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);
   const [edits, setEdits] = useState<SwpEdits>({}), [remarks, setRemarks] = useState('');

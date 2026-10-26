@@ -1,6 +1,6 @@
-import { NSEButton } from '@/components/nse/NSEPresentation';
+import { NSEButton } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { uploadNSEMandateImage } from '@/services/nseMandateImageService';
+import { uploadNSEMandateImage } from '../services/nseMandateImageService';
 
 export default function NSEMandateImageUpload({ clientCode, mandateId }: { clientCode: string; mandateId: string }) {
   const [file, setFile] = useState<File | null>(null);

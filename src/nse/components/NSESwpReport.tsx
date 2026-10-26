@@ -1,10 +1,10 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import NSECancelSwp from './NSECancelSwp';
 import NSEEditSwp from './NSEEditSwp';
 import React, { useEffect, useRef, useState } from 'react';
-import { nseApi } from '@/services/nseApi';
-import { buildSwpReportRequest } from '@/services/nseSwpReportService';
+import { nseApi } from '../services/nseApi';
+import { buildSwpReportRequest } from '../services/nseSwpReportService';
 
 const toReportDate = (iso: string) => iso.split('-').reverse().join('-');
 export default function NSESwpReport({ onViewDue }: { onViewDue?: (plan: { id: string; name: string }) => void } = {}) {

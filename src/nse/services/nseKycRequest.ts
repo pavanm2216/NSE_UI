@@ -1,4 +1,4 @@
-import type { ClientKYCReportRequest } from '@/types/nse';
+import type { ClientKYCReportRequest } from '../types/nse';
 import { parseNSEDueDate } from './nseSipPauseService';
 export function buildNSEKycRequest(input: ClientKYCReportRequest): ClientKYCReportRequest {
   const list = (value: string, pan: boolean) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEMasterPreview from './NSEMasterPreview';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 describe('Mutual funds selected master preview', () => {
   it('uses the fund name for underscored Mutual funds headers and keeps technical fields in details', async () => {

@@ -3,7 +3,7 @@ import { UCC_NOMINEE_FIELDS, getUccNomineeCount, getUccNomineeShare } from './ns
 import { nseApi, NSEApiError } from './nseApi';
 import { validateNSEUccDraft } from './nseUccDraftService';
 import { validateNSEMasterValues } from './nseDocumentMasters';
-import type { UCCDetail, UCCRegistrationRequest, UCCRegistrationResponse } from '@/types/nse';
+import type { UCCDetail, UCCRegistrationRequest, UCCRegistrationResponse } from '../types/nse';
 
 // Conditional profile fields follow the selected tax status, holding and depository.
 const fieldLimits: Record<string, number> = {

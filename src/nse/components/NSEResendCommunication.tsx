@@ -1,6 +1,6 @@
-import { NSEButton } from '@/components/nse/NSEPresentation';
+import { NSEButton } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { resendNSECommunication, type NSEResendProduct } from '@/services/nseCommunicationService';
+import { resendNSECommunication, type NSEResendProduct } from '../services/nseCommunicationService';
 
 export default function NSEResendCommunication({ productType, productRefId }: { productType: NSEResendProduct; productRefId: string }) {
   const [busy, setBusy] = useState(false);

@@ -1,5 +1,5 @@
 import { nseRequest } from './nseApi';
-import type { SIPCancellationDetail, SIPCancellationResponse } from '@/types/nse';
+import type { SIPCancellationDetail, SIPCancellationResponse } from '../types/nse';
 
 export const SIP_CANCELLATION_REASONS = [
   ['01', 'Non availability of funds'], ['02', 'Scheme not performing'], ['03', 'Service issue'], ['04', 'Load revised'],

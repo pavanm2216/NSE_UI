@@ -1,6 +1,6 @@
-import { NSEButton, NSESummary } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { uploadNSEAofImage } from '@/services/nseAofUploadService';
+import { uploadNSEAofImage } from '../services/nseAofUploadService';
 export default function NSEAofUpload() {
   const [client, setClient] = useState(''), [type, setType] = useState<'NRM' | 'RIA'>('NRM'), [file, setFile] = useState<File | null>(null);
   const [consent, setConsent] = useState(false), [busy, setBusy] = useState(false), [attempted, setAttempted] = useState(false), [message, setMessage] = useState(''), [error, setError] = useState('');

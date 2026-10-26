@@ -14,7 +14,7 @@ import { buildXsipReportRequest } from './nseXsipReportService';
 import { buildXsipDueRequest } from './nseXsipDueService';
 import { buildXsipCancellationReportRequest } from './nseXsipCancellationReportService';
 import { buildSipTopupReportRequest } from './nseSipTopupReportService';
-﻿import type * as NSE from '@/types/nse';
+﻿import type * as NSE from '../types/nse';
 
 export const NSE_TOKEN_KEY = 'nse_access_token';
 const API_PREFIX = (import.meta.env.VITE_NSE_API_BASE_URL as string) || '/nse-api';

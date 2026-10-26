@@ -1,12 +1,12 @@
 import NSEFlowSteps from './NSEFlowSteps';
-import { NSEButton, NSEDialogTitle, NSEHeading } from '@/components/nse/NSEPresentation';
-import { NSE_DOCUMENT_ORDER_MODES, NSE_DOCUMENT_PURCHASE_TYPES } from '@/services/nseTransactionOptions';
+import { NSEButton, NSEDialogTitle, NSEHeading } from '../components/NSEPresentation';
+import { NSE_DOCUMENT_ORDER_MODES, NSE_DOCUMENT_PURCHASE_TYPES } from '../services/nseTransactionOptions';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import NSEInvestorSelector from './NSEInvestorSelector';
 import NSEPaymentForm from './NSEPaymentForm';
-import type { NSEInvestorSelection } from '@/services/nseInvestorService';
-import { buildNSEPurchase, submitNSEPurchase, type NSETransactionMode, type NSEPurchaseType } from '@/services/nseOrderService';
+import type { NSEInvestorSelection } from '../services/nseInvestorService';
+import { buildNSEPurchase, submitNSEPurchase, type NSETransactionMode, type NSEPurchaseType } from '../services/nseOrderService';
 import type { NSEFund, NSEDemoOrder } from './NSEInvestmentFlow';
 const primary = 'w-full rounded-lg bg-[#102B78] px-4 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500';
 const input = 'mt-2 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm font-normal';

@@ -1,7 +1,7 @@
-import { NSEButton, NSEDialogTitle } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { buildNSEEkyc, registerNSEEkyc } from '@/services/nseEkycService';
+import { buildNSEEkyc, registerNSEEkyc } from '../services/nseEkycService';
 // NSE MF Invest API FAQ, 31 July 2025, section 1.18 (page 5).
 const rtaAmcCodes = [
   ['B', 'Aditya Birla'], ['K', 'Kotak Mahindra'], ['H', 'HDFC Mutual Fund'],

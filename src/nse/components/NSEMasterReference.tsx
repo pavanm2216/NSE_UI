@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useEffect, useMemo, useState } from 'react';
-import { nseApi, NSE_MASTER_FILE_TYPES, type NSEMasterFileType } from '@/services/nseApi';
+import { nseApi, NSE_MASTER_FILE_TYPES, type NSEMasterFileType } from '../services/nseApi';
 import { parseNSEMasterTable } from './NSEMasterPreview';
 
 const PAGE_SIZE = 25;

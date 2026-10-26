@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 import NSESwpReport from './NSESwpReport';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('maps documented withdrawal spellings and masks the payout account', async () => {
   vi.spyOn(nseApi, 'swpReport').mockResolvedValue({ response_status: 'S', report_data: [{ status: 'ACTIVE', swp_registration_no: '123', scheme_name: 'Test fund', amc: 'Test AMC', frequency_type: 'DAILY', withdrawl_amount: '0', withdrawal_units: '1', no_of_withdrawls: '1283', bank_account_no: '000011112222', transaction_mode: 'DEMAT' }] });

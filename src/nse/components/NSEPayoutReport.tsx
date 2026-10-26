@@ -1,7 +1,7 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { getNSEPayouts, NSE_PAYOUT_DATE_TYPES } from '@/services/nsePayoutService';
+import { getNSEPayouts, NSE_PAYOUT_DATE_TYPES } from '../services/nsePayoutService';
 export default function NSEPayoutReport({ nonDemat = false }: { nonDemat?: boolean } = {}) {
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
   const [filters, setFilters] = useState({ report_type: 'Order Date', from_date: today, to_date: today, amc_code: '', order_id: '', member_unique_ids: '' });

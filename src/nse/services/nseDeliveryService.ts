@@ -1,5 +1,5 @@
 import { nseRequest } from './nseApi';
-import type { SecuritiesDeliveryRequest } from '@/types/nse';
+import type { SecuritiesDeliveryRequest } from '../types/nse';
 import { parseNSEDueDate } from './nseSipPauseService';
 export interface NSEDeliveryInput { from_date: string; to_date: string; date_type: string; client_code: string; settlement_type: string; dp_type: string; order_ids: string; member_unique_ids: string; }
 export function buildNSEDelivery(input: NSEDeliveryInput, today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })): SecuritiesDeliveryRequest {

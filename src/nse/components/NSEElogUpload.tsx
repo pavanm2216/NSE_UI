@@ -1,6 +1,6 @@
-import { NSEButton, NSESummary } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary } from '../components/NSEPresentation';
 import React, { useId, useRef, useState } from 'react';
-import { buildNSEElogUpload, uploadNSEElog, type NSEHolderLog } from '@/services/nseElogUploadService';
+import { buildNSEElogUpload, uploadNSEElog, type NSEHolderLog } from '../services/nseElogUploadService';
 type HolderForm = NSEHolderLog & { consentDate: string; consentTime: string };
 const emptyHolder = (): HolderForm => ({ pan: '', ip: '', date: '', consentDate: '', consentTime: '' });
 const validIp = (value: string) => /^\d{1,3}(\.\d{1,3}){3}$/.test(value) && value.split('.').every(part => Number(part) <= 255);

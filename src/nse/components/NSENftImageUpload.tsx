@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildNftImage, uploadNftImage } from '@/services/nseNftImageService';
+import { buildNftImage, uploadNftImage } from '../services/nseNftImageService';
 export default function NSENftImageUpload({ onBusy, onAttempt }: { onBusy: (busy: boolean) => void; onAttempt: () => void }) {
   const [reference, setReference] = useState(''), [file, setFile] = useState<File | null>(null), [review, setReview] = useState(false), [consent, setConsent] = useState(false), [attempted, setAttempted] = useState(false), [busy, setBusy] = useState(false), [error, setError] = useState(''), [message, setMessage] = useState('');
   const lock = useRef(false);

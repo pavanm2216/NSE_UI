@@ -4,7 +4,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEAmcPause from './NSEAmcPause';
 import NSEEkycRegistration from './NSEEkycRegistration';
 import NSEAmcPauseReport from './NSEAmcPauseReport';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 const mock = (body: unknown, status = 200) => { sessionStorage.setItem(NSE_TOKEN_KEY, 'test-token'); const fetcher = vi.fn().mockResolvedValue({ ok: status === 200, status, text: async () => JSON.stringify(body) }); vi.stubGlobal('fetch', fetcher); return fetcher; };
 it('requires review and consent, then shows AMC service unavailability without retry', async () => {

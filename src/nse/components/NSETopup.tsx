@@ -1,6 +1,6 @@
-import { NSEButton, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildNSETopup, registerNSETopup, type NSETopupInput } from '@/services/nseTopupService';
+import { buildNSETopup, registerNSETopup, type NSETopupInput } from '../services/nseTopupService';
 export default function NSETopup({ plan }: { plan: Pick<NSETopupInput, 'product' | 'id' | 'client' | 'baseAmount' | 'baseStart' | 'baseEnd'> }) {
   const [open, setOpen] = useState(false), [review, setReview] = useState(false), [consent, setConsent] = useState(false);
   const [fields, setFields] = useState({ amount: '', start: '', end: '', mobile: '', email: '' });

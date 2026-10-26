@@ -2,7 +2,7 @@ import { NSE_DOCUMENT_PLAN_FREQUENCIES } from './nseTransactionOptions';
 ﻿import { nseApi } from './nseApi';
 import { indiaReportDates } from './nseOrderReportService';
 import type { NSEInvestorSelection } from './nseInvestorService';
-import type { SIPRegistrationRequest } from '@/types/nse';
+import type { SIPRegistrationRequest } from '../types/nse';
 export const NSE_SIP_FREQUENCIES = NSE_DOCUMENT_PLAN_FREQUENCIES;
 export interface NSESipInput {
   amcCode: string; schemeCode: string; investor: NSEInvestorSelection; memberCode: string;

@@ -1,4 +1,4 @@
-import type { SIPInstDueReportRequest } from '@/types/nse';
+import type { SIPInstDueReportRequest } from '../types/nse';
 import { buildSipReportRequest } from './nseSipReportService';
 
 export function buildSipDueRequest(input: SIPInstDueReportRequest, today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })): SIPInstDueReportRequest {

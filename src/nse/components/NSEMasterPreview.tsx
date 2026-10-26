@@ -1,8 +1,8 @@
-import { NSEButton, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import NSESwpFlow from './NSESwpFlow';
 import NSEStpFlow from './NSEStpFlow';
 import React, { useEffect, useMemo, useState } from 'react';
-import { nseApi, NSE_MASTER_FILE_TYPES, type NSEMasterFileType } from '@/services/nseApi';
+import { nseApi, NSE_MASTER_FILE_TYPES, type NSEMasterFileType } from '../services/nseApi';
 import { CalendarDays, FileText, TrendingUp } from 'lucide-react';
 import NSEInvestmentFlow, { type NSEDemoOrder } from './NSEInvestmentFlow';
 import { type NSEPlanScheme } from './NSEPlanFlow';

@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEXsipFlow from './NSEXsipFlow';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 vi.mock('./NSEInvestorSelector', () => import('@/test/mockNSEInvestorSelector'));
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('requires a real approved mandate and consent before registering an XSIP', async () => {

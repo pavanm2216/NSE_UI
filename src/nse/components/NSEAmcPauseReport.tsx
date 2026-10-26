@@ -1,7 +1,7 @@
 import NSESearchFields from './NSESearchFields';
-import { NSEButton, NSESummary, NSEHeading } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary, NSEHeading } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { getNSEAmcPauseReport, NSEAmcPauseReportInput } from '@/services/nseAmcPauseService';
+import { getNSEAmcPauseReport, NSEAmcPauseReportInput } from '../services/nseAmcPauseService';
 const labels: Record<string, string> = { no_of_instalments_paused: 'Installments paused', modified_instalments: 'Modified installments', pause_from_date: 'Pause from', pause_to_date: 'Pause until' };
 const groups = [
   ['Plan', ['client_code', 'sip_registration_no', 'scheme_code', 'scheme_name', 'amount', 'sip_start_date', 'sip_end_date']],

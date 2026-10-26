@@ -2,9 +2,9 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEUccRegistration from './NSEUccRegistration';
-import { UCC_NOMINEE_FIELDS } from '@/services/nseUccNomineeService';
-import { NSE_TOKEN_KEY } from '@/services/nseApi';
-import { validUccValues as v } from '@/services/fixtures/nseUccRegistration';
+import { UCC_NOMINEE_FIELDS } from '../services/nseUccNomineeService';
+import { NSE_TOKEN_KEY } from '../services/nseApi';
+import { validUccValues as v } from '../services/fixtures/nseUccRegistration';
 
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 const fill = (label: string, value: string) => fireEvent.change(screen.getByLabelText(label), { target: { value } });

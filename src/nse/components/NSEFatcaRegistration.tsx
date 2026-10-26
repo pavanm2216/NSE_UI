@@ -1,4 +1,4 @@
-import { NSEButton, NSEDialogTitle } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSEDialogTitle } from '../components/NSEPresentation';
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import NSEFatcaDataUpload from './NSEFatcaDataUpload';
@@ -6,8 +6,8 @@ import NSEFatcaCommonUpload from './NSEFatcaCommonUpload';
 import NSEFatcaUpload from './NSEFatcaUpload';
 import NSEFatcaClientLookup from './NSEFatcaClientLookup';
 import NSEFatcaReport from './NSEFatcaReport';
-import { fatcaInvestorCategory } from '@/services/nseFatcaDataService';
-import type { FatcaPrefill, FatcaHolder } from '@/services/nseFatcaPrefillService';
+import { fatcaInvestorCategory } from '../services/nseFatcaDataService';
+import type { FatcaPrefill, FatcaHolder } from '../services/nseFatcaPrefillService';
 
 const choices = [
   ['individual', 'Individual declaration', 'For an individual investor or guardian.'],

@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSECancelOrder from './NSECancelOrder';
-import * as service from '@/services/nseOrderCancellationService';
+import * as service from '../services/nseOrderCancellationService';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('requires review and confirmation even when remarks are blank', async () => {
   const cancel = vi.spyOn(service, 'cancelNSEOrder').mockResolvedValue('Mutual funds confirmed the order cancellation');

@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 import NSESwpCancellations from './NSESwpCancellations';
-import { nseApi, NSE_TOKEN_KEY } from '@/services/nseApi';
+import { nseApi, NSE_TOKEN_KEY } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); sessionStorage.clear(); });
 it('maps documented cancellation and withdrawal fields without inventing a status', async () => {
   vi.spyOn(nseApi, 'swpCancellations').mockResolvedValue({ response_status: 'S', report_data: [{ swp_registration_no: '123', scheme_name: 'Test fund', amc: 'Test AMC', swp_cancellation_date: '01 Aug 2023 17:53:21', swp_cancelled_by: 'ADMIN', withdrawl_amount: '0', withdrawl_units: '10', no_of_withdrawls: '12', frequency_type: 'MONTHLY' }] });

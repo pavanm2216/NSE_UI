@@ -2,7 +2,7 @@ import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import NSEXsipReport from './NSEXsipReport';
-import { nseApi } from '@/services/nseApi';
+import { nseApi } from '../services/nseApi';
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 it('shows the documented cancelled XSIP and mandate without authorization actions', async () => {
   vi.spyOn(nseApi, 'xsipReport').mockResolvedValue({ response_status: 'S', report_data: [{ status: 'CXL', xsip_registration_no: '123', xsip_registration_date: '13 MAR 2025', nse_mandate_id: '456', scheme_name: 'Cancelled test fund', installments_amount: '10000' }] });

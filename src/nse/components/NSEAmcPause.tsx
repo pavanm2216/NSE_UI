@@ -1,6 +1,6 @@
-import { NSEButton, NSESummary } from '@/components/nse/NSEPresentation';
+import { NSEButton, NSESummary } from '../components/NSEPresentation';
 import React, { useRef, useState } from 'react';
-import { buildNSEAmcPause, submitNSEAmcPause } from '@/services/nseAmcPauseService';
+import { buildNSEAmcPause, submitNSEAmcPause } from '../services/nseAmcPauseService';
 export default function NSEAmcPause({ id, client }: { id: string; client: string }) {
   const [input, setInput] = useState({ client_code: client, sip_reg_no: id, modification_type: 'PAUSE', no_of_installments: '', pause_from: '' });
   const [review, setReview] = useState(false), [consent, setConsent] = useState(false), [attempted, setAttempted] = useState(false), [busy, setBusy] = useState(false), [error, setError] = useState(''), [message, setMessage] = useState('');
